@@ -5,6 +5,16 @@
   list-style: none;
 }
 
+html {
+  background: linear-gradient(
+    90deg,
+    rgb(71, 71, 225),
+    rgb(201, 85, 201),
+    rgb(233, 90, 90)
+  );
+  background-size: 600% 600%;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   width: 90%;
@@ -18,8 +28,15 @@ header {
   justify-content: center;
 }
 
+h1,
+h2 {
+  color: white;
+  text-shadow: 2px 2px #000000;
+}
+
 h1 {
-  font-size: 2rem;
+  font-size: 4rem;
+  margin-top: 20px;
 }
 
 main {
@@ -28,8 +45,6 @@ main {
   justify-content: space-around;
   align-items: center;
   height: 80vh;
-  background: linear-gradient(90deg, black, grey, white);
-  background-size: 600% 600%;
 
   animation: bg-animation 20s ease infinite;
 }
@@ -58,10 +73,11 @@ main {
   justify-self: flex-start;
   color: white;
   text-shadow: 2px 2px #000000;
+  font-size: 2rem;
 }
 
 .question {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
   text-shadow: 2px 2px #000000;
   text-align: center;
@@ -78,11 +94,40 @@ main {
 
 .choice {
   background: #fff;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
   box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.75);
   cursor: pointer;
+}
+
+.scores {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 3px solid white;
+  border-collapse: collapse;
+  font-size: 1.5rem;
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.75);
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px #000000;
+}
+
+footer {
+  height: 100px;
 }

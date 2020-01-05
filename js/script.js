@@ -2,6 +2,12 @@
 const choiceBoxes = document.querySelectorAll('.choice');
 const questionText = document.querySelector('.question');
 const scoreboard = document.querySelector('.scoreboard');
+const scoreList = document.querySelector('.score-list');
+
+//create variables
+let highScores = [];
+// highScores = localStorage.getItem('highScores');
+// localStorage.setItem('highScores', highScores);
 
 // create class for questions and quiz
 class Trivia {
@@ -10,6 +16,10 @@ class Trivia {
     this.questionIndex = 0;
     this.score = 0;
     this.numberOfQuestions = questions.length;
+  }
+  startTrivia() {
+    scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
+    this.showQuestion();
   }
   showQuestion() {
     questionText.innerText = this.questions[this.questionIndex].question;
@@ -22,6 +32,7 @@ class Trivia {
     this.changeScore(guess);
     if (this.checkGameEnd()) {
       console.log(this.checkGameEnd());
+      this.gameEnd();
     } else {
       this.nextQuestion();
     }
@@ -36,7 +47,21 @@ class Trivia {
     this.showQuestion();
   }
   checkGameEnd() {
-    return this.questionIndex >= this.numberOfQuestions - 1;
+    return this.questionIndex === this.numberOfQuestions - 1;
+  }
+  gameEnd() {
+    console.log('GAME OVER');
+    let finalScore = this.score;
+    let playerName = prompt('New high score! Enter your name.');
+    highScores.push({ name: playerName, score: finalScore });
+    this.logScores();
+  }
+  logScores() {
+    highScores.forEach(obj => {
+      let scoreItem = document.createElement('li');
+      scoreItem.innerText = `Name: ${obj.name}, ${obj.score}`;
+      scoreList.appendChild(scoreItem);
+    });
   }
 }
 
@@ -47,28 +72,6 @@ class Question {
     this.answer = answer;
   }
 }
-
-soccerQuestions = [
-  new Question(
-    'Which team won the 2018 FIFA World Cup?',
-    ['Brazil', 'Germany', 'France', 'Argentina'],
-    'France'
-  ),
-  new Question(
-    'How many panels is a classic soccer ball made of?',
-    ['8', '16', '32', '64'],
-    '32'
-  ),
-  new Question(
-    'Who is the only player to win player of the year 6 times?',
-    ['Pele', 'Cristiano Ronaldo', 'Diego Maradona', 'Lionel Messi'],
-    'Lionel Messi'
-  )
-];
-
-let soccerTrivia = new Trivia(soccerQuestions);
-
-soccerTrivia.showQuestion();
 
 choiceBoxes.forEach(choice => {
   choice.addEventListener('click', e => soccerTrivia.makeChoice(e));
