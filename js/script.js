@@ -28,6 +28,7 @@ class Trivia {
     for (let i = 0; i < choiceBoxes.length; i++) {
       let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
+      choiceBoxes[i].className = 'choice';
       if (guess.picture) {
         let pic = document.createElement('img');
         pic.setAttribute('class', 'choice-image');
@@ -82,6 +83,7 @@ class Trivia {
     } else {
     }
     highScores.sort((a, b) => b.score - a.score);
+    highScores = highScores.slice(0, 5);
     for (let i = 0; i < highScores.length; i++) {
       let scoreRow = document.createElement('tr');
       scoreRow.setAttribute('class', 'player');
