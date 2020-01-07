@@ -166,7 +166,7 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-items: space-around;
+  align-items: center;
   min-height: 420px;
 }
 
@@ -180,19 +180,15 @@ main {
   width: 220px;
   height: 52px;
   overflow: hidden;
-  transition: height, 0.5s;
+  transition: all, 0.5s;
 }
 
-.small-img {
-  transition: height, 0.5s;
+.choice:hover {
+  background: #2e7b77;
 }
 
 .small-img:hover {
   height: 190.5px;
-}
-
-.big-img {
-  transition: height, 0.5s;
 }
 
 .big-img:hover {
@@ -214,7 +210,7 @@ main {
   padding-left: 30px;
   display: grid;
   grid-template-areas: 'anchor nav nav' 'head head clear' 'table table table';
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 0fr 2fr 1fr;
   grid-template-rows: 70px 140px 1fr;
 }
 
@@ -234,6 +230,7 @@ td {
 }
 
 table {
+  margin-top: 30px;
   width: 60%;
   grid-area: table;
   justify-self: left;
