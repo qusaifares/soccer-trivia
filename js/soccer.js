@@ -18,8 +18,8 @@ soccerQuestions = [
     'Who is the only player to win player of the year 6 times?',
     [
       { text: 'Pele', picture: 'pele.jpg' },
-      { text: 'Cristiano Ronaldo', picture: 'ronaldo.jpg' },
       { text: 'Zinedine Zidane', picture: 'zidane.jpg' },
+      { text: 'Cristiano Ronaldo', picture: 'ronaldo.jpg' },
       { text: 'Lionel Messi', picture: 'messi.jpg' }
     ],
     'Lionel Messi'

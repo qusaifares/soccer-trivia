@@ -4,6 +4,7 @@ const questionText = document.querySelector('.question');
 const scoreboard = document.querySelector('.scoreboard');
 const scoreList = document.querySelector('.score-list');
 const clearButton = document.querySelector('.clear-scores');
+const form = document.querySelector('.congrats');
 
 //create variables
 let highScores = JSON.parse(localStorage.getItem('highScoreList'));
