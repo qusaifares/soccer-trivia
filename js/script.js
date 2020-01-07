@@ -91,6 +91,7 @@ class Trivia {
   clearScores() {
     highScores = [];
     localStorage.setItem('highScoreList', JSON.stringify(highScores));
+    this.logScores();
   }
   restart() {
     this.questionIndex = 0;
@@ -110,6 +111,8 @@ class Question {
 choiceBoxes.forEach(choice => {
   choice.addEventListener('click', e => soccerTrivia.makeChoice(e));
 });
+
+clearButton.addEventListener('click', e => soccerTrivia.clearScores());
 
 // when choice is clicked, compare to answer
 // if answer is correct, add 1 to score
