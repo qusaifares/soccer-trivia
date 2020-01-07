@@ -3,9 +3,14 @@ const choiceBoxes = document.querySelectorAll('.choice');
 const questionText = document.querySelector('.question');
 const scoreboard = document.querySelector('.scoreboard');
 const scoreList = document.querySelector('.score-list');
+const clearButton = document.querySelector('.clear-scores');
 
 //create variables
-let highScores = [];
+let highScores = JSON.parse(localStorage.getItem('highScoreList'));
+if (highScores.length === 0 || !highScores) {
+  console.log(highScores.length);
+  highScores = [];
+}
 // highScores = localStorage.getItem('highScores');
 // localStorage.setItem('highScores', highScores);
 
@@ -19,6 +24,7 @@ class Trivia {
   }
   startTrivia() {
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
+    this.logScores();
     this.showQuestion();
   }
   showQuestion() {
@@ -55,13 +61,41 @@ class Trivia {
     let playerName = prompt('New high score! Enter your name.');
     highScores.push({ name: playerName, score: finalScore });
     this.logScores();
+    this.restart();
   }
   logScores() {
-    highScores.forEach(obj => {
-      let scoreItem = document.createElement('li');
-      scoreItem.innerText = `Name: ${obj.name}, ${obj.score}`;
-      scoreList.appendChild(scoreItem);
-    });
+    let rows = document.querySelectorAll('.player');
+    if (rows) {
+      console.log(!rows);
+      rows.forEach(row => row.parentNode.removeChild(row));
+    } else {
+      console.log('false', !rows);
+    }
+    highScores.sort((a, b) => b.score - a.score);
+    for (let i = 0; i < highScores.length; i++) {
+      let scoreRow = document.createElement('tr');
+      scoreRow.setAttribute('class', 'player');
+      scoreList.appendChild(scoreRow);
+      let rankCell = document.createElement('td');
+      rankCell.append(i + 1);
+      let playerCell = document.createElement('td');
+      playerCell.append(highScores[i].name);
+      let scoreCell = document.createElement('td');
+      scoreCell.append(highScores[i].score);
+      scoreRow.appendChild(rankCell);
+      scoreRow.appendChild(playerCell);
+      scoreRow.appendChild(scoreCell);
+    }
+    localStorage.setItem('highScoreList', JSON.stringify(highScores));
+  }
+  clearScores() {
+    highScores = [];
+    localStorage.setItem('highScoreList', JSON.stringify(highScores));
+  }
+  restart() {
+    this.questionIndex = 0;
+    this.score = 0;
+    this.showQuestion();
   }
 }
 
