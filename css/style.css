@@ -36,10 +36,14 @@ h1 {
 
 nav {
   font-size: 2rem;
+  margin-top: 10px;
 }
 
 nav a {
-  padding: 0 10px
+  margin: 0 20px;
+  padding: 0 10px;
+  border: 2px solid #1f2833;
+  transition: all 0.4s;
 }
 
 nav a:hover {
@@ -49,16 +53,15 @@ nav a:hover {
 
 main {
   background: #1f2833;
-  height: 100vh;
+  min-height: 100vh;
   color: #c5c6c7;
   align-items: center;
-  border-radius: 10px;
   margin-top: 20px;
 }
 
 .top {
   text-align: center;
-  padding-top: 30px;
+  margin-top: 70px;
   height: 200px;
 }
 
@@ -75,7 +78,6 @@ main {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  min-height: 600px;
 }
 
 .choice {
@@ -86,6 +88,13 @@ main {
   margin: 0 30px;
   padding: 10px;
   width: 220px;
+  height: 52px;
+  overflow: hidden;
+  transition: height, 0.5s;
+}
+
+.choice:hover {
+  height: 416.44px;
 }
 
 .choice-image {
@@ -99,12 +108,11 @@ main {
 
 .scores {
   background: #45a29e;
-  
   height: 100vh;
   display: grid;
-  grid-template-areas: '. head clear' 'table table table';
+  grid-template-areas: 'anchor nav nav' '. head clear' 'table table table';
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 140px 1fr;
+  grid-template-rows: 70px 140px 1fr;
 }
 
 h2 {
@@ -151,4 +159,51 @@ td {
 footer {
   height: 100px;
   background: #1f2833
+}
+
+.mini-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.mini-nav li {
+  font-size: 1.2rem;
+  margin: 10px;
+  padding: 10px;
+  font-weight: normal;
+  border: 2px solid;
+}
+
+.trivia-nav {
+  color: #45a29e;
+}
+
+.trivia-nav li {
+  border-color: #45a29e;
+  transition: all 0.4s;
+}
+
+.trivia-nav li:hover {
+  color: #1f2833;
+  background: #45a29e;
+}
+
+.scores-nav {
+  grid-area: nav;
+}
+
+.scores-nav li {
+  border-color: #1f2833;
+  transition: all 0.4s;
+}
+
+.scores-nav li:hover {
+  background: #1f2833;
+  color: #45a29e;
+}
+
+.score-anchor {
+  grid-area: anchor;
 }

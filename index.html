@@ -12,6 +12,7 @@
     <title>Trivia</title>
   </head>
   <body>
+    <a name="menu"></a>
     <header>
       <h1>Trivia</h1>
       <nav>
@@ -21,6 +22,10 @@
     </header>
     <main>
       <a name="trivia"></a>
+      <ul class="trivia-nav mini-nav">
+        <a href="#menu"><li>Main Menu</li></a>
+        <a href="#scores"><li>High Scores</li></a>
+      </ul>
       <div class="top">
         <div class="scoreboard"></div>
         <div class="question"></div>
@@ -34,7 +39,11 @@
       </div>
     </main>
     <section class="scores">
-      <a name="scores"></a>
+      <a class="score-anchor" name="scores"></a>
+      <ul class="scores-nav mini-nav">
+        <a href="#menu"><li>Main Menu</li></a>
+        <a href="#trivia"><li>Trivia</li></a>
+      </ul>
       <h2>High scores</h2>
       <button class="clear-scores">Clear Scores</button>
       <table class="score-list">
