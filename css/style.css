@@ -254,6 +254,11 @@ td {
   margin: 30px auto;
   height: 50px;
   width: 200px;
+  transition: all, 0.4s;
+}
+
+.clear-scores:hover {
+  background: #2e7b77;
 }
 
 footer {
