@@ -93,7 +93,11 @@ main {
   transition: height, 0.5s;
 }
 
-.choice:hover {
+.small-img:hover{
+  height: 190.5px;
+}
+
+.big-img:hover {
   height: 416.44px;
 }
 

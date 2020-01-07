@@ -33,6 +33,9 @@ class Trivia {
         pic.setAttribute('class', 'choice-image');
         if (guess.picture && guess.picture.includes('flag')) {
           pic.classList.add('flag');
+          choiceBoxes[i].classList.add('small-img');
+        } else {
+          choiceBoxes[i].classList.add('big-img');
         }
         pic.setAttribute('src', `img/${guess.picture}`);
         choiceBoxes[i].appendChild(pic);
