@@ -7,7 +7,7 @@ const clearButton = document.querySelector('.clear-scores');
 
 //create variables
 let highScores = JSON.parse(localStorage.getItem('highScoreList'));
-if (highScores.length === 0 || !highScores) {
+if (!highScores || highScores.length === 0) {
   console.log(highScores.length);
   highScores = [];
 }
@@ -66,10 +66,8 @@ class Trivia {
   logScores() {
     let rows = document.querySelectorAll('.player');
     if (rows) {
-      console.log(!rows);
       rows.forEach(row => row.parentNode.removeChild(row));
     } else {
-      console.log('false', !rows);
     }
     highScores.sort((a, b) => b.score - a.score);
     for (let i = 0; i < highScores.length; i++) {

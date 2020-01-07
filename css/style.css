@@ -125,6 +125,12 @@ td {
   text-shadow: 2px 2px #000000;
 }
 
+.clear-scores {
+  height: 30px;
+  width: 100px;
+  margin: 10px 0;
+}
+
 footer {
   height: 100px;
 }
