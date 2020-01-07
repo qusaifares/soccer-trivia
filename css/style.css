@@ -7,66 +7,75 @@
 }
 
 html {
-  background: #1f2833;
+  background: #45a29e;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-  padding: 10px 30px;
+}
+
+a {
+  color: inherit;
 }
 
 header {
-  height: 70px;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-h1,
-h2 {
-  color: #66fcf1;
-  text-shadow: 2px 2px #000000;
-}
-
 h1 {
-  font-size: 4rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #1f2833;
+  font-size: 7rem;
   margin-top: 20px;
 }
 
+nav {
+  font-size: 2rem;
+}
+
+nav a {
+  padding: 0 10px
+}
+
+nav a:hover {
+  background: #1f2833;
+  color: #45a29e;
+}
+
 main {
+  background: #1f2833;
+  height: 100vh;
   color: #c5c6c7;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  height: 80vh;
   border-radius: 10px;
   margin-top: 20px;
 }
 
 .top {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
+  text-align: center;
+  padding-top: 30px;
+  height: 200px;
 }
 
 .scoreboard {
-  justify-self: flex-start;
   font-size: 2rem;
 }
 
 .question {
   font-size: 2rem;
-  text-align: center;
 }
 
 .bottom {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  min-height: 600px;
 }
 
 .choice {
@@ -89,41 +98,57 @@ main {
 }
 
 .scores {
-  width: 100%;
+  background: #45a29e;
+  
+  height: 100vh;
+  display: grid;
+  grid-template-areas: '. head clear' 'table table table';
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 140px 1fr;
+}
+
+h2 {
+  color: #1f2833;
+  grid-area: head;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
 }
 
 table,
 th,
 td {
-  border: 3px solid #c5c6c7;
+  border: 3px solid #1f2833;
   border-collapse: collapse;
-  font-size: 1.5rem;
-  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.75);
+  font-size: 2rem;
 }
 
 table {
-  width: 100%;
+  width: 60%;
+  grid-area: table;
+  justify-self: center;
 }
 
 th,
 td {
   padding: 10px;
   text-align: center;
-  color: #c5c6c7;
-  text-shadow: 2px 2px #000000;
+  color: #1f2833;
 }
 
 .clear-scores {
+  grid-area: clear;
   color: #c5c6c7;
-  background: inherit;
+  background: #1f2833;
   font-size: 1.5rem;
   text-align: center;
-  border: 2px solid #45a29e;
+  border: 2px solid #1f2833;
   cursor: pointer;
   margin: 30px 0;
+  height: 50px;
   width: 200px;
 }
 
 footer {
   height: 100px;
+  background: #1f2833
 }
