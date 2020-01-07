@@ -15,6 +15,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 a {
   color: inherit;
 }
@@ -64,7 +68,7 @@ main {
   height: 100%;
   width: 100%;
   position: absolute;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -125,9 +129,29 @@ main {
 }
 
 .top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-top: 70px;
   height: 200px;
+}
+
+.restart {
+  background: #45a29e;
+  font-size: 1.2rem;
+  margin: 20px;
+  padding: 10px;
+  align-self: flex-end;
+  font-weight: normal;
+  border: 2px solid;
+  border-color: #45a29e;
+  transition: all 0.4s;
+}
+
+.restart:hover {
+  color: #45a29e;
+  background: #1f2833;
 }
 
 .scoreboard {
@@ -142,7 +166,7 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: space-around;
   min-height: 420px;
 }
 
@@ -151,7 +175,7 @@ main {
   text-align: center;
   border: 2px solid #45a29e;
   cursor: pointer;
-  margin: 0 30px;
+  margin: 0;
   padding: 10px;
   width: 220px;
   height: 52px;
@@ -187,13 +211,14 @@ main {
 .scores {
   background: #45a29e;
   height: 100vh;
+  padding-left: 30px;
   display: grid;
-  grid-template-areas: 'anchor nav nav' '. head clear' 'table table table';
+  grid-template-areas: 'anchor nav nav' 'head head clear' 'table table table';
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 70px 140px 1fr;
 }
 
-h2 {
+.scores h2 {
   color: #1f2833;
   grid-area: head;
   font-family: 'Montserrat', sans-serif;
@@ -211,7 +236,7 @@ td {
 table {
   width: 60%;
   grid-area: table;
-  justify-self: center;
+  justify-self: left;
 }
 
 th,
@@ -229,7 +254,7 @@ td {
   text-align: center;
   border: 2px solid #1f2833;
   cursor: pointer;
-  margin: 30px 0;
+  margin: 30px auto;
   height: 50px;
   width: 200px;
 }
@@ -293,5 +318,16 @@ footer {
   }
   .choice {
     margin: 10px 0;
+  }
+}
+
+@media (max-width: 900px) and (min-width: 700px) {
+  .bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .choice {
+    align-self: center;
+    margin: 0 auto;
   }
 }

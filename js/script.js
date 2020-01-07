@@ -5,6 +5,9 @@ const scoreboard = document.querySelector('.scoreboard');
 const scoreList = document.querySelector('.score-list');
 const clearButton = document.querySelector('.clear-scores');
 const form = document.querySelector('.congrats');
+const popup = document.querySelector('.popup-bg');
+const nameInput = document.querySelector('.name-input');
+const restart = document.querySelector('.restart');
 
 //create variables
 let highScores = JSON.parse(localStorage.getItem('highScoreList'));
@@ -72,10 +75,22 @@ class Trivia {
   gameEnd() {
     console.log('GAME OVER');
     let finalScore = this.score;
-    let playerName = prompt('New high score! Enter your name.');
-    highScores.push({ name: playerName, score: finalScore });
-    this.logScores();
-    this.restart();
+    if (highScores.length < 5 || finalScore >= highScores[4]) {
+      popup.style.display = 'flex';
+    } else {
+      this.restart();
+    }
+  }
+  highScoreInput() {
+    if (nameInput.value) {
+      let playerName = nameInput.value;
+      let finalScore = this.score;
+      highScores.push({ name: playerName, score: finalScore });
+      popup.style.display = 'none';
+      this.logScores();
+    } else {
+      alert('Make sure to enter a name.');
+    }
   }
   logScores() {
     let rows = document.querySelectorAll('.player');
@@ -126,7 +141,11 @@ choiceBoxes.forEach(choice => {
   choice.addEventListener('click', e => soccerTrivia.makeChoice(e));
 });
 
-clearButton.addEventListener('click', e => soccerTrivia.clearScores());
+clearButton.addEventListener('click', () => soccerTrivia.clearScores());
+
+form.addEventListener('submit', () => soccerTrivia.highScoreInput());
+
+restart.addEventListener('click', () => soccerTrivia.restart());
 
 // when choice is clicked, compare to answer
 // if answer is correct, add 1 to score
