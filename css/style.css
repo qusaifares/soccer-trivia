@@ -76,15 +76,16 @@ main {
   cursor: pointer;
   margin: 0 30px;
   padding: 10px;
-  width: 200px;
+  width: 220px;
 }
 
 .choice-image {
   width: 100%;
+  margin-top: 10px;
 }
 
 .flag {
-  height: 110px;
+  height: 122.5px;
 }
 
 .scores {
