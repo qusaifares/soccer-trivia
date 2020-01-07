@@ -8,7 +8,6 @@ const clearButton = document.querySelector('.clear-scores');
 //create variables
 let highScores = JSON.parse(localStorage.getItem('highScoreList'));
 if (!highScores || highScores.length === 0) {
-  console.log(highScores.length);
   highScores = [];
 }
 // highScores = localStorage.getItem('highScores');
