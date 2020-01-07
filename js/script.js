@@ -10,10 +10,7 @@ let highScores = JSON.parse(localStorage.getItem('highScoreList'));
 if (!highScores || highScores.length === 0) {
   highScores = [];
 }
-// highScores = localStorage.getItem('highScores');
-// localStorage.setItem('highScores', highScores);
 
-// create class for questions and quiz
 class Trivia {
   constructor(questions) {
     this.questions = questions;
@@ -29,11 +26,22 @@ class Trivia {
   showQuestion() {
     questionText.innerText = this.questions[this.questionIndex].question;
     for (let i = 0; i < choiceBoxes.length; i++) {
-      choiceBoxes[i].innerText = this.questions[this.questionIndex].choices[i];
+      let guess = this.questions[this.questionIndex].choices[i];
+      choiceBoxes[i].innerText = guess.text;
+      if (guess.picture) {
+        let pic = document.createElement('img');
+        pic.setAttribute('class', 'choice-image');
+        if (guess.picture && guess.picture.includes('flag')) {
+          pic.classList.add('flag');
+        }
+        pic.setAttribute('src', `img/${guess.picture}`);
+        choiceBoxes[i].appendChild(pic);
+      }
     }
   }
   makeChoice(e) {
     let guess = e.target.innerText;
+    console.log(e.target);
     this.changeScore(guess);
     if (this.checkGameEnd()) {
       console.log(this.checkGameEnd());
@@ -42,8 +50,8 @@ class Trivia {
       this.nextQuestion();
     }
   }
-  changeScore(guessedAnswer) {
-    if (guessedAnswer === this.questions[this.questionIndex].answer)
+  changeScore(guessMade) {
+    if (guessMade === this.questions[this.questionIndex].answer.text)
       this.score++;
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
   }
@@ -93,12 +101,13 @@ class Trivia {
   restart() {
     this.questionIndex = 0;
     this.score = 0;
+    scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
     this.showQuestion();
   }
 }
 
 class Question {
-  constructor(question, choices, answer) {
+  constructor(question, choices, answer, picture) {
     this.question = question;
     this.choices = choices;
     this.answer = answer;
