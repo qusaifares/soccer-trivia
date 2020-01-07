@@ -40,19 +40,21 @@ class Trivia {
     }
   }
   makeChoice(e) {
-    let guess = e.target.innerText;
-    console.log(e.target);
+    let guess;
+    if (e.target.classList.contains('choice-image')) {
+      guess = e.target.parentNode.innerText;
+    } else {
+      guess = e.target.innerText;
+    }
     this.changeScore(guess);
     if (this.checkGameEnd()) {
-      console.log(this.checkGameEnd());
       this.gameEnd();
     } else {
       this.nextQuestion();
     }
   }
   changeScore(guessMade) {
-    if (guessMade === this.questions[this.questionIndex].answer.text)
-      this.score++;
+    if (guessMade === this.questions[this.questionIndex].answer) this.score++;
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
   }
   nextQuestion() {
