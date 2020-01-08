@@ -15,3 +15,4 @@ const menuWrap = document.querySelector('.menu-wrap');
 const startButton = document.querySelector('.start-button');
 const closeMenu = document.querySelector('.close-menu');
 const soccerButton = document.querySelector('.soccer');
+const questionNumber = document.querySelector('.question-number');

@@ -9,6 +9,8 @@ class Trivia {
     this.menuButtonClass = menuButtonClass;
   }
   startTrivia() {
+    this.questionIndex = 0;
+    this.score = 0;
     this.callEventListeners();
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
     this.logScores();
@@ -26,6 +28,9 @@ class Trivia {
         if (guess.picture && guess.picture.includes('flag')) {
           pic.classList.add('flag');
           choiceBoxes[i].classList.add('small-img');
+        } else if (guess.picture && guess.picture.includes('crest')) {
+          pic.classList.add('crest');
+          choiceBoxes[i].classList.add('crest-img');
         } else {
           choiceBoxes[i].classList.add('big-img');
         }
