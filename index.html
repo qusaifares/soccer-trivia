@@ -23,9 +23,10 @@
     <main>
       <a class="anch" name="trivia"></a>
       <div class="popup-bg">
-        <div class="popup-content">
-          <img src="img/trophy-worldcup.png" alt="" />
+        <div class="popup-content popup-end">
+          <img class="cup" src="img/trophy-worldcup.png" alt="" />
           <form class="congrats">
+            <div class="close">&#10005;</div>
             <p>Congratulations, new high score!</p>
             <input
               class="name-input"
@@ -36,6 +37,15 @@
           </form>
         </div>
       </div>
+      
+      <div class="popup-question-bg">
+        <div class="popup-question-content">
+            <p class="result">Incorrect</p>
+            <button class="acknowledge">I'm sorry.</button>
+          </form>
+        </div>
+      </div>
+
       <ul class="trivia-nav mini-nav">
         <a href="#menu"><li>Main Menu</li></a>
         <a href="#trivia"><li>Trivia</li></a>

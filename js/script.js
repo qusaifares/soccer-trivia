@@ -5,9 +5,13 @@ const scoreboard = document.querySelector('.scoreboard');
 const scoreList = document.querySelector('.score-list');
 const clearButton = document.querySelector('.clear-scores');
 const form = document.querySelector('.congrats');
-const popup = document.querySelector('.popup-bg');
+const endPopup = document.querySelector('.popup-bg');
 const nameInput = document.querySelector('.name-input');
 const restart = document.querySelector('.restart');
+const close = document.querySelector('.close');
+const resultPopup = document.querySelector('.popup-question-bg');
+const result = document.querySelector('.result');
+const acknowledge = document.querySelector('.acknowledge');
 
 //create variables
 let highScores = JSON.parse(localStorage.getItem('highScoreList'));
@@ -23,6 +27,7 @@ class Trivia {
     this.numberOfQuestions = questions.length;
   }
   startTrivia() {
+    this.callEventListeners();
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
     this.logScores();
     this.showQuestion();
@@ -54,16 +59,39 @@ class Trivia {
     } else {
       guess = e.target.innerText;
     }
-    this.changeScore(guess);
+    if (this.isCorrect(guess)) {
+      this.addScore();
+      this.showCorrect();
+    } else {
+      this.showIncorrect();
+    }
     if (this.checkGameEnd()) {
       this.gameEnd();
     } else {
       this.nextQuestion();
     }
   }
-  changeScore(guessMade) {
-    if (guessMade === this.questions[this.questionIndex].answer) this.score++;
+  isCorrect(guessMade) {
+    return guessMade === this.questions[this.questionIndex].answer;
+  }
+  addScore() {
+    this.score++;
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
+  }
+  showCorrect() {
+    result.innerText = 'Thats correct. Good job!';
+    acknowledge.innerText = 'Yay!';
+    resultPopup.style.display = 'flex';
+  }
+  showIncorrect() {
+    result.innerText = `That's wrong. The correct answer is ${
+      this.questions[this.questionIndex].answer
+    }`;
+    acknowledge.innerText = "I'm sorry";
+    resultPopup.style.display = 'flex';
+  }
+  acknowledge() {
+    resultPopup.style.display = 'none';
   }
   nextQuestion() {
     this.questionIndex++;
@@ -76,7 +104,7 @@ class Trivia {
     console.log('GAME OVER');
     let finalScore = this.score;
     if (highScores.length < 5 || finalScore >= highScores[4]) {
-      popup.style.display = 'flex';
+      endPopup.style.display = 'flex';
     } else {
       this.restart();
     }
@@ -86,11 +114,16 @@ class Trivia {
       let playerName = nameInput.value;
       let finalScore = this.score;
       highScores.push({ name: playerName, score: finalScore });
-      popup.style.display = 'none';
+      endPopup.style.display = 'none';
       this.logScores();
+      this.restart();
     } else {
       alert('Make sure to enter a name.');
     }
+  }
+  abortScoreInput() {
+    endPopup.style.display = 'none';
+    this.restart();
   }
   logScores() {
     let rows = document.querySelectorAll('.player');
@@ -127,6 +160,21 @@ class Trivia {
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
     this.showQuestion();
   }
+  callEventListeners() {
+    choiceBoxes.forEach(choice => {
+      choice.addEventListener('click', e => this.makeChoice(e));
+    });
+
+    clearButton.addEventListener('click', () => this.clearScores());
+
+    form.addEventListener('submit', () => this.highScoreInput());
+
+    restart.addEventListener('click', () => this.restart());
+
+    close.addEventListener('click', () => this.abortScoreInput());
+
+    acknowledge.addEventListener('click', () => this.acknowledge());
+  }
 }
 
 class Question {
@@ -136,16 +184,6 @@ class Question {
     this.answer = answer;
   }
 }
-
-choiceBoxes.forEach(choice => {
-  choice.addEventListener('click', e => soccerTrivia.makeChoice(e));
-});
-
-clearButton.addEventListener('click', () => soccerTrivia.clearScores());
-
-form.addEventListener('submit', () => soccerTrivia.highScoreInput());
-
-restart.addEventListener('click', () => soccerTrivia.restart());
 
 // when choice is clicked, compare to answer
 // if answer is correct, add 1 to score

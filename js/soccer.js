@@ -10,7 +10,7 @@ soccerQuestions = [
     'France'
   ),
   new Question(
-    'How many panels is a classic soccer ball made of?',
+    'How many panels is a traditional soccer ball made of?',
     [{ text: '24' }, { text: '32' }, { text: '48' }, { text: '64' }],
     '32'
   ),
