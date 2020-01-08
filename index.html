@@ -14,9 +14,17 @@
   <body>
     <a class="anch" name="menu"></a>
     <header>
+      <div class="menu-wrap">
+        <div class="close-menu">&#10005;</div>
+        <ul class="trivia-list">
+          <li><a class="soccer" href="#trivia">Soccer Trivia</a></li>
+          <li><a class="pop" href="#trivia">Pop Culture Trivia</a></li>
+          <li><a class="movies" href="#trivia">Movies Trivia</a></li>
+        </ul>
+      </div>
       <h1>Trivia</h1>
       <nav>
-        <a href="#trivia">Start Trivia</a>
+        <a class ="start-button" href="#">Start Trivia</a>
         <a href="#scores">High Scores</a>
       </nav>
     </header>
@@ -68,7 +76,7 @@
       </div>
     </main>
     <section class="scores">
-      <a class="anchor" name="scores"></a>
+      <a class="anch" name="scores"></a>
       
       <div class="page-header">
               <input class="menu-btn" type="checkbox" id="scores-menu-btn">
@@ -86,13 +94,16 @@
           <th>Rank</th>
           <th>Name</th>
           <th>Score</th>
+          <th>Date</th>
         </tr>
       </table>
     </section>
 
     <footer></footer>
-
-    <script src="js/script.js"></script>
+    <script src="js/dom-elements.js"></script>
+    <script src="js/trivia.js"></script>
+    <script src="js/question.js"></script>
     <script src="js/soccer.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
