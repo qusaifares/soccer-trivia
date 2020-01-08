@@ -55,12 +55,12 @@ h1 {
 
 nav {
   font-size: 2rem;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 nav a {
   margin: 0 20px;
-  padding: 0 30px;
+  padding: 15px;
   border: 2px solid #1f2833;
   transition: all 0.4s;
 }

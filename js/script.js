@@ -99,9 +99,13 @@ class Trivia {
   gameEnd() {
     console.log('GAME OVER');
     let finalScore = this.score;
-    if (this.highScores.length < 5 || finalScore >= this.highScores[4]) {
+    if (this.highScores.length < 5 || finalScore >= this.highScores[4].score) {
       endPopup.style.display = 'flex';
     } else {
+      console.log(
+        this.highScores.length < 5 || finalScore >= this.highScores[4]
+      );
+      console.log(this.highScores);
       this.restart();
     }
   }
