@@ -23,6 +23,11 @@ soccerQuestions = [
       { text: 'Lionel Messi', picture: 'messi.jpg' }
     ],
     'Lionel Messi'
+  ),
+  new Question(
+    'How many minutes is the length of an official soccer game?',
+    [{ text: '60' }, { text: '90' }, { text: '100' }, { text: '120' }],
+    '60'
   )
 ];
 
@@ -30,10 +35,9 @@ soccerHighScores = JSON.parse(localStorage.getItem('soccerHighScores'));
 if (!soccerHighScores || soccerHighScores.length === 0) {
   soccerHighScores = [];
 }
+
 let soccerTrivia = new Trivia(
   soccerQuestions,
   soccerHighScores,
   'soccerHighScores'
 );
-
-soccerTrivia.startTrivia();
