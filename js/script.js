@@ -13,18 +13,14 @@ const resultPopup = document.querySelector('.popup-question-bg');
 const result = document.querySelector('.result');
 const acknowledge = document.querySelector('.acknowledge');
 
-//create variables
-let highScores = JSON.parse(localStorage.getItem('highScoreList'));
-if (!highScores || highScores.length === 0) {
-  highScores = [];
-}
-
 class Trivia {
-  constructor(questions) {
+  constructor(questions, highScores, highScoreLocal) {
     this.questions = questions;
     this.questionIndex = 0;
     this.score = 0;
     this.numberOfQuestions = questions.length;
+    this.highScores = highScores;
+    this.highScoreLocal = highScoreLocal;
   }
   startTrivia() {
     this.callEventListeners();
@@ -103,7 +99,7 @@ class Trivia {
   gameEnd() {
     console.log('GAME OVER');
     let finalScore = this.score;
-    if (highScores.length < 5 || finalScore >= highScores[4]) {
+    if (this.highScores.length < 5 || finalScore >= this.highScores[4]) {
       endPopup.style.display = 'flex';
     } else {
       this.restart();
@@ -113,7 +109,7 @@ class Trivia {
     if (nameInput.value) {
       let playerName = nameInput.value;
       let finalScore = this.score;
-      highScores.push({ name: playerName, score: finalScore });
+      this.highScores.push({ name: playerName, score: finalScore });
       endPopup.style.display = 'none';
       this.logScores();
       this.restart();
@@ -131,27 +127,27 @@ class Trivia {
       rows.forEach(row => row.parentNode.removeChild(row));
     } else {
     }
-    highScores.sort((a, b) => b.score - a.score);
-    highScores = highScores.slice(0, 5);
-    for (let i = 0; i < highScores.length; i++) {
+    this.highScores.sort((a, b) => b.score - a.score);
+    this.highScores = this.highScores.slice(0, 5);
+    for (let i = 0; i < this.highScores.length; i++) {
       let scoreRow = document.createElement('tr');
       scoreRow.setAttribute('class', 'player');
       scoreList.appendChild(scoreRow);
       let rankCell = document.createElement('td');
       rankCell.append(i + 1);
       let playerCell = document.createElement('td');
-      playerCell.append(highScores[i].name);
+      playerCell.append(this.highScores[i].name);
       let scoreCell = document.createElement('td');
-      scoreCell.append(highScores[i].score);
+      scoreCell.append(this.highScores[i].score);
       scoreRow.appendChild(rankCell);
       scoreRow.appendChild(playerCell);
       scoreRow.appendChild(scoreCell);
     }
-    localStorage.setItem('highScoreList', JSON.stringify(highScores));
+    localStorage.setItem(this.highScoreLocal, JSON.stringify(this.highScores));
   }
   clearScores() {
-    highScores = [];
-    localStorage.setItem('highScoreList', JSON.stringify(highScores));
+    this.highScores = [];
+    localStorage.setItem('highScoreList', JSON.stringify(this.highScores));
     this.logScores();
   }
   restart() {

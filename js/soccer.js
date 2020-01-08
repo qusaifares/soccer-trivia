@@ -26,6 +26,14 @@ soccerQuestions = [
   )
 ];
 
-let soccerTrivia = new Trivia(soccerQuestions);
+soccerHighScores = JSON.parse(localStorage.getItem('soccerHighScores'));
+if (!soccerHighScores || soccerHighScores.length === 0) {
+  soccerHighScores = [];
+}
+let soccerTrivia = new Trivia(
+  soccerQuestions,
+  soccerHighScores,
+  'soccerHighScores'
+);
 
 soccerTrivia.startTrivia();
