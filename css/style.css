@@ -181,21 +181,19 @@ main {
 }
 
 .top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
   margin-top: 70px;
-  height: 200px;
+  max-height: 200px;
+  width: 100%;
 }
 
 .restart {
+  position: absolute;
+  top: 20px;
+  left: 20px;
   background: #45a29e;
   font-size: 1.2rem;
-  margin: 20px;
   padding: 10px;
-  align-self: flex-end;
-  font-weight: normal;
   border: 2px solid;
   border-color: #45a29e;
   transition: all 0.4s;
@@ -220,6 +218,7 @@ main {
   justify-content: space-around;
   align-items: center;
   min-height: 420px;
+  padding-top: 100px;
 }
 
 .choice {
@@ -232,7 +231,7 @@ main {
   width: 220px;
   height: 52px;
   overflow: hidden;
-  transition: all, 0.5s;
+  transition: all 0.5s;
 }
 
 .choice:hover {
@@ -263,11 +262,16 @@ main {
     rgba(56, 122, 119, 1) 100%
   );
   height: 100vh;
-  padding-left: 30px;
+  padding: 20px 0 0 30px;
   display: grid;
-  grid-template-areas: 'anchor nav nav' 'head head clear' 'table table table';
-  grid-template-columns: 0fr 2fr 1fr;
-  grid-template-rows: 70px 140px 1fr;
+  grid-template-areas: 'nav nav' 'head clear' 'table table';
+  grid-template-rows: 87px 110px 1fr;
+}
+
+.menu-btn,
+.nav-icon,
+.menu-icon {
+  display: none;
 }
 
 .scores h2 {
@@ -282,10 +286,10 @@ th,
 td {
   border: 3px solid #1f2833;
   border-collapse: collapse;
-  font-size: 2rem;
 }
 
 table {
+  font-size: 2rem;
   margin-top: 30px;
   width: 60%;
   grid-area: table;
@@ -342,8 +346,9 @@ footer {
 }
 
 .trivia-nav li {
-  border-color: #45a29e;
+  border-color: #c5c6c7;
   transition: all 0.4s;
+  color: #c5c6c7;
 }
 
 .trivia-nav li:hover {
@@ -370,12 +375,154 @@ footer {
 }
 
 @media (max-width: 700px) {
+  nav a {
+    display: block;
+    margin: 20px 0;
+    padding: 15px;
+    font-size: 1.5rem;
+  }
+  main {
+    padding-top: 100px;
+  }
+  .top {
+    margin-top: 0;
+    text-align: center;
+  }
+  .question {
+    font-size: 1.4rem;
+    margin: 0 10px;
+  }
   .bottom {
     flex-direction: column;
     align-items: center;
   }
   .choice {
-    margin: 10px 0;
+    margin: 0;
+  }
+  .scores {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    grid-template-areas: none;
+    grid-template-columns: initial;
+    grid-template-rows: initial;
+    padding: 50px 0 0 20px;
+  }
+  .scores h2 {
+    font-size: 3rem;
+  }
+  .clear-scores {
+    font-size: 1rem;
+    text-align: center;
+    margin: 30px auto;
+    height: 40px;
+    width: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+  }
+  table {
+    font-size: 1.3rem;
+  }
+  .restart {
+    top: 5px;
+    left: 5px;
+    font-size: 1rem;
+    margin: 20px;
+    padding: 0px;
+    align-self: flex-start;
+    font-weight: normal;
+    border: 2px solid;
+    border-color: #45a29e;
+    transition: all 0.4s;
+    height: 30px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .page-header {
+    text-align: right;
+  }
+
+  .mini-nav {
+    display: block;
+    flex-direction: initial;
+    justify-content: initial;
+    margin-right: 0;
+    z-index: 3;
+    position: absolute;
+    background: #1f2833;
+    color: #45a29e;
+    right: 10px;
+    top: 70px;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.2s ease-out;
+  }
+
+  .scores-nav {
+    color: #1f2833;
+    background: #45a29e;
+  }
+
+  .scores-nav li {
+    border: none;
+  }
+
+  .trivia-nav li {
+    border: none;
+  }
+
+  .mini-nav li {
+    font-size: 1.2rem;
+    margin: 10px;
+    padding: 10px;
+    font-weight: normal;
+  }
+
+  .menu-icon {
+    display: block;
+    padding: 28px 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    float: right;
+  }
+  .nav-icon {
+    background: #333;
+    display: block;
+    height: 3px;
+    width: 24px;
+    position: relative;
+    transition: all 0.2s ease-out;
+  }
+  .nav-icon:before,
+  .nav-icon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 7px;
+    transition: all 0.2s ease-out;
+  }
+
+  main .nav-icon,
+  main .nav-icon:before,
+  main .nav-icon:after {
+    background: #c5c6c7;
+  }
+
+  .nav-icon:after {
+    top: -7px;
+  }
+
+  .menu-btn:checked ~ .mini-nav {
+    height: 180px;
   }
 }
 

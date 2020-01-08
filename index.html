@@ -45,12 +45,15 @@
           </form>
         </div>
       </div>
-
-      <ul class="trivia-nav mini-nav">
-        <a href="#menu"><li>Main Menu</li></a>
-        <a href="#trivia"><li>Trivia</li></a>
-        <a href="#scores"><li>High Scores</li></a>
-      </ul>
+      <div class="page-header">
+        <input class="menu-btn" type="checkbox" id="trivia-menu-btn">
+        <label for="trivia-menu-btn" class="menu-icon"><span class="nav-icon"></span></label>
+        <ul class="trivia-nav mini-nav">
+          <a href="#menu"><li>Main Menu</li></a>
+          <a href="#trivia"><li>Trivia</li></a>
+          <a href="#scores"><li>High Scores</li></a>
+        </ul>
+      </div>
       <div class="top">
         <button class="restart">Restart</button>
         <div class="scoreboard"></div>
@@ -66,11 +69,16 @@
     </main>
     <section class="scores">
       <a class="anchor" name="scores"></a>
+      
+      <div class="page-header">
+              <input class="menu-btn" type="checkbox" id="scores-menu-btn">
+              <label for="scores-menu-btn" class="menu-icon"><span class="nav-icon"></span></label>
       <ul class="scores-nav mini-nav">
+        
         <a href="#menu"><li>Main Menu</li></a>
         <a href="#trivia"><li>Trivia</li></a>
         <a href="#scores"><li>High Scores</li></a>
-      </ul>
+      </ul></div>
       <h2>High scores</h2>
       <button class="clear-scores">Clear Scores</button>
       <table class="score-list">
