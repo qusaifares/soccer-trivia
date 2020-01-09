@@ -1,8 +1,69 @@
 donaldQuestions = [
   new Question(
-    'Which team won the 2018 FIFA World Cup?',
-    [{ text: 'Yes' }, { text: 'No' }],
-    'Yes'
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Fake',
+    'donald-fake-1.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Real',
+    'donald-real-1.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Real',
+    'donald-real-2.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Fake',
+    'donald-fake-2.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Real',
+    'donald-real-3.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Real',
+    'donald-real-4.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Fake',
+    'donald-fake-3.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Fake',
+    'donald-fake-4.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Real',
+    'donald-real-5.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Fake',
+    'donald-fake-5.png'
+  ),
+  new Question(
+    'Real or fake?',
+    [{ text: 'Real' }, { text: 'Fake' }],
+    'Real',
+    'donald-real-6.png'
   )
 ];
 // Store high scores locally

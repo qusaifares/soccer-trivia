@@ -22,11 +22,19 @@ class Trivia {
   }
   showQuestion() {
     questionText.innerText = this.questions[this.questionIndex].question;
+    //if theres already a picture, delete it.
+    if (!!document.querySelector('.question-image')) {
+      document.querySelector('.question-image').remove();
+    }
+    // if theres a picture in the questions array, create element
     if (!!this.questions[this.questionIndex].picture) {
+      let questionImage = document.createElement('img');
       questionImage.setAttribute(
         'src',
         `img/${this.questions[this.questionIndex].picture}`
       );
+      questionImage.classList.add('question-image');
+      questionImageContainer.appendChild(questionImage);
     } else if (questionImage.hasAttribute('src')) {
       questionImage.removeAttribute('src');
     }

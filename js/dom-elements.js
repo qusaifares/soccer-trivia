@@ -1,6 +1,8 @@
 const choiceBoxes = document.querySelectorAll('.choice');
 const questionText = document.querySelector('.question');
-const questionImage = document.querySelector('.question-image');
+const questionImageContainer = document.querySelector(
+  '.question-image-container'
+);
 const scoreboard = document.querySelector('.scoreboard');
 const scoreList = document.querySelector('.score-list');
 const clearButton = document.querySelector('.clear-scores');
