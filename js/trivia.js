@@ -13,6 +13,10 @@ class Trivia {
     this.score = 0;
     this.callEventListeners();
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
+      this.numberOfQuestions
+    }`;
+
     this.logScores();
     this.showQuestion();
   }
@@ -64,6 +68,9 @@ class Trivia {
   addScore() {
     this.score++;
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
+      this.numberOfQuestions
+    }`;
   }
   showCorrect() {
     result.innerText = 'Thats correct. Good job!';
@@ -82,6 +89,9 @@ class Trivia {
   }
   nextQuestion() {
     this.questionIndex++;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
+      this.numberOfQuestions
+    }`;
     this.showQuestion();
   }
   checkGameEnd() {
@@ -182,6 +192,9 @@ class Trivia {
     this.questionIndex = 0;
     this.score = 0;
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
+      this.numberOfQuestions
+    }`;
     this.showQuestion();
   }
   callEventListeners() {
