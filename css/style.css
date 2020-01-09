@@ -87,8 +87,10 @@ header {
 h1 {
   font-family: 'Montserrat', sans-serif;
   color: #1f2833;
-  font-size: 7rem;
-  margin-top: 20px;
+  font-size: 5rem;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  width: 520px;
 }
 
 nav {
@@ -431,6 +433,9 @@ footer {
 }
 
 @media (max-width: 700px) {
+  h1 {
+    font-size: 3.5rem;
+  }
   nav a {
     display: block;
     margin: 20px 0;
