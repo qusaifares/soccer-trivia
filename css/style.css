@@ -260,6 +260,10 @@ main {
   border: 2px solid #45a29e;
   border-radius: 10px;
   padding: 5px;
+  max-width: 100%;
+}
+.question-image-container {
+  margin: 0 auto;
 }
 
 .bottom {
@@ -575,6 +579,10 @@ footer {
 
   .menu-btn:checked ~ .mini-nav {
     height: 180px;
+  }
+
+  .question-image-container {
+    max-width: 90%;
   }
 }
 
