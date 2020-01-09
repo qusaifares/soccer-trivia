@@ -9,7 +9,7 @@ donaldQuestions = [
     'Real or fake?',
     [{ text: 'Real' }, { text: 'Fake' }],
     'Real',
-    'donald-real-1.png'
+    'donald-real-3.png'
   ),
   new Question(
     'Real or fake?',
@@ -27,13 +27,7 @@ donaldQuestions = [
     'Real or fake?',
     [{ text: 'Real' }, { text: 'Fake' }],
     'Real',
-    'donald-real-3.png'
-  ),
-  new Question(
-    'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
-    'Real',
-    'donald-real-4.png'
+    'donald-real-1.png'
   ),
   new Question(
     'Real or fake?',
@@ -44,8 +38,8 @@ donaldQuestions = [
   new Question(
     'Real or fake?',
     [{ text: 'Real' }, { text: 'Fake' }],
-    'Fake',
-    'donald-fake-4.png'
+    'Real',
+    'donald-real-4.png'
   ),
   new Question(
     'Real or fake?',
@@ -56,14 +50,14 @@ donaldQuestions = [
   new Question(
     'Real or fake?',
     [{ text: 'Real' }, { text: 'Fake' }],
-    'Fake',
-    'donald-fake-5.png'
+    'Real',
+    'donald-real-6.png'
   ),
   new Question(
     'Real or fake?',
     [{ text: 'Real' }, { text: 'Fake' }],
-    'Real',
-    'donald-real-6.png'
+    'Fake',
+    'donald-fake-4.png'
   )
 ];
 // Store high scores locally

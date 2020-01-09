@@ -36,13 +36,13 @@ class Trivia {
       questionImage.classList.add('question-image');
       questionImageContainer.appendChild(questionImage);
     }
-    console.log(this.triviaType);
+    choiceTwo.style.display = 'block';
+    choiceThree.style.display = 'block';
     if (this.triviaType === 'multiple choice') {
       this.showMultipleChoice();
     } else if (this.triviaType === 'true or false') {
       this.showTrueOrFalse();
     } else {
-      console.log(this.triviaType);
       alert('Invalid trivia type.');
     }
   }
@@ -95,6 +95,7 @@ class Trivia {
     }
   }
   makeChoice(e) {
+    console.log(e.target);
     let guess;
     if (e.target.classList.contains('choice-image')) {
       guess = e.target.parentNode.innerText;
@@ -149,15 +150,10 @@ class Trivia {
     return this.questionIndex === this.numberOfQuestions - 1;
   }
   gameEnd() {
-    console.log('GAME OVER');
     let finalScore = this.score;
     if (this.highScores.length < 5 || finalScore >= this.highScores[4].score) {
       endPopup.style.display = 'flex';
     } else {
-      console.log(
-        this.highScores.length < 5 || finalScore >= this.highScores[4]
-      );
-      console.log(this.highScores);
       this.restart();
     }
   }
@@ -165,13 +161,11 @@ class Trivia {
     let now = new Date();
     let hours = now.getHours();
     let minutes = 0;
-    console.log(typeof now.getMinutes());
     if (now.getMinutes() + 1 < 10) {
       minutes = '0' + now.getMinutes().toString();
     } else {
       minutes = now.getMinutes();
     }
-    console.log(minutes);
     let period;
     if (hours >= 12) {
       period = 'PM';
@@ -182,6 +176,8 @@ class Trivia {
     let time;
     if (hours > 12) {
       time = `${hours - 12}:${minutes} ${period}`;
+    } else if (hours == 0) {
+      time = `${hours + 12}:${minutes} ${period}`;
     } else {
       time = `${hours}:${minutes} ${period}`;
     }
@@ -193,7 +189,7 @@ class Trivia {
       let finalScore = this.score;
       this.highScores.push({
         name: playerName,
-        score: finalScore,
+        score: `${finalScore}/${this.numberOfQuestions}`,
         date: this.getCurrentTime()
       });
       endPopup.style.display = 'none';
@@ -250,7 +246,7 @@ class Trivia {
   }
   callEventListeners() {
     choiceBoxes.forEach(choice => {
-      choice.addEventListener('click', e => this.makeChoice(e));
+      choice.addEventListener('click', e => this.makeChoice());
     });
 
     clearButton.addEventListener('click', () => this.clearScores());

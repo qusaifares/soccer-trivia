@@ -47,7 +47,7 @@ header {
 }
 
 .menu-wrap {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   position: fixed;
   z-index: 2;
   height: 100%;
@@ -282,6 +282,7 @@ main {
   height: 52px;
   overflow: hidden;
   transition: all 0.5s;
+  display: none;
 }
 
 .choice:hover {

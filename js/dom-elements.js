@@ -1,3 +1,5 @@
+const menuCheckBox = document.querySelectorAll('.name-input');
+const miniNav = document.querySelectorAll('.mini-nav');
 const choiceBoxes = document.querySelectorAll('.choice');
 const questionText = document.querySelector('.question');
 const questionImageContainer = document.querySelector(
@@ -21,4 +23,6 @@ const soccerButton = document.querySelector('.soccer');
 const donaldButton = document.querySelector('.trump');
 const questionNumber = document.querySelector('.question-number');
 const choiceOne = document.querySelector('.choice-1');
+const choiceTwo = document.querySelector('.choice-2');
+const choiceThree = document.querySelector('.choice-3');
 const choiceFour = document.querySelector('.choice-4');
