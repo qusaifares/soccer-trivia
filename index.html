@@ -12,7 +12,7 @@
     <title>Trivia</title>
   </head>
   <body>
-    <a class="anch" name="menu"></a>
+    <a class="anch" id="menu"></a>
     <header>
       <div class="menu-wrap">
         <div class="close-menu">&#10005;</div>
@@ -24,12 +24,12 @@
       </div>
       <h1>Trivia</h1>
       <nav>
-        <a class ="start-button" href="#">Start Trivia</a>
+        <a class="start-button" href="#">Start Trivia</a>
         <a href="#scores">High Scores</a>
       </nav>
     </header>
     <main>
-      <a class="anch" name="trivia"></a>
+      <a class="anch" id="trivia"></a>
       <div class="popup-bg">
         <div class="popup-content popup-end">
           <img class="cup" src="img/trophy-worldcup.png" alt="" />
@@ -45,29 +45,33 @@
           </form>
         </div>
       </div>
-      
+
       <div class="popup-question-bg">
         <div class="popup-question-content">
-            <p class="result">Incorrect</p>
-            <button class="acknowledge">I'm sorry.</button>
-          </form>
+          <p class="result">Incorrect</p>
+          <button class="acknowledge">I'm sorry.</button>
         </div>
       </div>
       <div class="page-header">
-        <input class="menu-btn" type="checkbox" id="trivia-menu-btn">
-        <label for="trivia-menu-btn" class="menu-icon"><span class="nav-icon"></span></label>
-        <ul class="trivia-nav mini-nav">
-          <a href="#menu"><li>Main Menu</li></a>
-          <a href="#trivia"><li>Trivia</li></a>
-          <a href="#scores"><li>High Scores</li></a>
-        </ul>
+        <input class="menu-btn" type="checkbox" id="trivia-menu-btn" />
+        <label for="trivia-menu-btn" class="menu-icon"
+          ><span class="nav-icon"></span
+        ></label>
+        <div class="trivia-nav mini-nav">
+          <a href="#menu">Main Menu</a>
+          <a href="#trivia">Trivia</a>
+          <a href="#scores">High Scores</a>
+        </div>
       </div>
       <div class="top">
         <button class="restart">Restart</button>
         <div class="overlay">
-        <div class="question-number">Question: 0/10</div>
-        <div class="scoreboard"></div></div>
-        <div class="question">Go ahead and select the trivia in the main menu.</div>
+          <div class="question-number">Question: 0/10</div>
+          <div class="scoreboard"></div>
+        </div>
+        <div class="question">
+          Go ahead and select the trivia in the main menu.
+        </div>
         <div class="question-image"></div>
       </div>
       <div class="bottom">
@@ -78,17 +82,19 @@
       </div>
     </main>
     <section class="scores">
-      <a class="anch" name="scores"></a>
-      
+      <a class="anch" id="scores"></a>
+
       <div class="page-header">
-              <input class="menu-btn" type="checkbox" id="scores-menu-btn">
-              <label for="scores-menu-btn" class="menu-icon"><span class="nav-icon"></span></label>
-      <ul class="scores-nav mini-nav">
-        
-        <a href="#menu"><li>Main Menu</li></a>
-        <a href="#trivia"><li>Trivia</li></a>
-        <a href="#scores"><li>High Scores</li></a>
-      </ul></div>
+        <input class="menu-btn" type="checkbox" id="scores-menu-btn" />
+        <label for="scores-menu-btn" class="menu-icon"
+          ><span class="nav-icon"></span
+        ></label>
+        <div class="scores-nav mini-nav">
+          <a href="#menu">Main Menu</a>
+          <a href="#trivia">Trivia</a>
+          <a href="#scores">High Scores</a>
+        </div>
+      </div>
       <h2>High scores</h2>
       <button class="clear-scores">Clear Scores</button>
       <table class="score-list">
