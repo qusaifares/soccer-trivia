@@ -1,5 +1,5 @@
 class Trivia {
-  constructor(questions, highScores, highScoreLocal, triviaType) {
+  constructor(questions, highScores, highScoreLocal, triviaType, triviaTitle) {
     this.questions = questions;
     this.questionIndex = 0;
     this.score = 0;
@@ -10,7 +10,13 @@ class Trivia {
   }
   startTrivia() {
     this.removeChoices();
-    this.generateChoices();
+    if (this.triviaType === 'multiple choice') {
+      this.generateChoices(4);
+    } else if (this.triviaType === 'true or false') {
+      this.generateChoices(2);
+    } else {
+      alert('Invalid trivia type.');
+    }
     this.removeForm();
     this.generateForm();
     this.questionIndex = 0;
@@ -24,8 +30,8 @@ class Trivia {
     this.logScores();
     this.showQuestion();
   }
-  generateChoices() {
-    for (let i = 1; i <= 4; i++) {
+  generateChoices(num) {
+    for (let i = 1; i <= num; i++) {
       let choiceBox = document.createElement('div');
       choiceBox.setAttribute('class', `choice choice-` + i);
       // choiceBox.classList.add('choice');
@@ -87,8 +93,6 @@ class Trivia {
       questionImage.classList.add('question-image');
       questionImageContainer.appendChild(questionImage);
     }
-    document.querySelector('.choice-2').style.display = 'block';
-    document.querySelector('.choice-3').style.display = 'block';
     if (this.triviaType === 'multiple choice') {
       this.showMultipleChoice();
     } else if (this.triviaType === 'true or false') {
@@ -98,9 +102,8 @@ class Trivia {
     }
   }
   showMultipleChoice() {
-    document.querySelector('.choice-1').style.display = 'block';
-    document.querySelector('.choice-4').style.display = 'block';
     let choiceBoxes = document.querySelectorAll('.choice');
+    console.log(choiceBoxes.length);
     for (let i = 0; i < choiceBoxes.length; i++) {
       let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
@@ -134,11 +137,9 @@ class Trivia {
     }
   }
   showTrueOrFalse() {
-    document.querySelectorAll('.choice-1').style.display = 'none';
-    document.querySelectorAll('.choice-4').style.display = 'none';
     let choiceBoxes = document.querySelectorAll('.choice');
-    for (let i = 1; i < 3; i++) {
-      let guess = this.questions[this.questionIndex].choices[i - 1];
+    for (let i = 0; i < 2; i++) {
+      let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
       choiceBoxes[i].className = 'choice';
       if (guess.picture) {

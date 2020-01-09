@@ -282,18 +282,11 @@ main {
   height: 52px;
   overflow: hidden;
   transition: all 0.5s;
-  display: none;
+  display: block;
 }
 
 .choice:hover {
   background: #2e7b77;
-}
-
-.choice-1,
-.choice-2,
-.choice-3,
-.choice-4 {
-  display: none;
 }
 
 .small-img:hover {
@@ -323,7 +316,7 @@ main {
     rgba(69, 162, 158, 1) 0%,
     rgba(56, 122, 119, 1) 100%
   );
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px 0 0 30px;
   display: grid;
   grid-template-areas: 'nav nav' 'head clear' 'table table';
