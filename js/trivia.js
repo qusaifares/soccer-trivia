@@ -1,5 +1,11 @@
 class Trivia {
-  constructor(questions, highScores, highScoreLocal, menuButtonClass) {
+  constructor(
+    questions,
+    highScores,
+    highScoreLocal,
+    menuButtonClass,
+    triviaType
+  ) {
     this.questions = questions;
     this.questionIndex = 0;
     this.score = 0;
@@ -7,6 +13,7 @@ class Trivia {
     this.highScores = highScores;
     this.highScoreLocal = highScoreLocal;
     this.menuButtonClass = menuButtonClass;
+    this.triviaType = triviaType;
   }
   startTrivia() {
     this.questionIndex = 0;
@@ -22,7 +29,42 @@ class Trivia {
   }
   showQuestion() {
     questionText.innerText = this.questions[this.questionIndex].question;
+    if (this.triviaType === 'multiple choice') {
+      this.showMultipleChoice();
+    } else if (this.triviaType === 'true or false') {
+      this.showTrueOrFalse();
+    } else {
+      alert('Invalid trivia type.');
+    }
+  }
+  showMultipleChoice() {
+    choiceOne.style.display = 'none';
+    choiceTwo.style.display = 'none';
     for (let i = 0; i < choiceBoxes.length; i++) {
+      let guess = this.questions[this.questionIndex].choices[i];
+      choiceBoxes[i].innerText = guess.text;
+      choiceBoxes[i].className = 'choice';
+      if (guess.picture) {
+        let pic = document.createElement('img');
+        pic.setAttribute('class', 'choice-image');
+        if (guess.picture && guess.picture.includes('flag')) {
+          pic.classList.add('flag');
+          choiceBoxes[i].classList.add('small-img');
+        } else if (guess.picture && guess.picture.includes('crest')) {
+          pic.classList.add('crest');
+          choiceBoxes[i].classList.add('crest-img');
+        } else {
+          choiceBoxes[i].classList.add('big-img');
+        }
+        pic.setAttribute('src', `img/${guess.picture}`);
+        choiceBoxes[i].appendChild(pic);
+      }
+    }
+  }
+  showTrueOrFalse() {
+    choiceOne.style.display = 'block';
+    choiceTwo.style.display = 'block';
+    for (let i = 1; i < 3; i++) {
       let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
       choiceBoxes[i].className = 'choice';

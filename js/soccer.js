@@ -71,5 +71,6 @@ if (!soccerHighScores || soccerHighScores.length === 0) {
 const soccerTrivia = new Trivia(
   soccerQuestions,
   soccerHighScores,
-  'soccerHighScores'
+  'soccerHighScores',
+  'multiple choice'
 );
