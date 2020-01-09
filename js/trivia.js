@@ -35,8 +35,6 @@ class Trivia {
       );
       questionImage.classList.add('question-image');
       questionImageContainer.appendChild(questionImage);
-    } else if (questionImage.hasAttribute('src')) {
-      questionImage.removeAttribute('src');
     }
     console.log(this.triviaType);
     if (this.triviaType === 'multiple choice') {
