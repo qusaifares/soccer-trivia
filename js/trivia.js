@@ -9,6 +9,10 @@ class Trivia {
     this.triviaType = triviaType;
   }
   startTrivia() {
+    this.removeChoices();
+    this.generateChoices();
+    this.removeForm();
+    this.generateForm();
     this.questionIndex = 0;
     this.score = 0;
     this.callEventListeners();
@@ -19,6 +23,53 @@ class Trivia {
 
     this.logScores();
     this.showQuestion();
+  }
+  generateChoices() {
+    for (let i = 1; i <= 4; i++) {
+      let choiceBox = document.createElement('div');
+      choiceBox.setAttribute('class', `choice choice-` + i);
+      // choiceBox.classList.add('choice');
+      // choiceBox.classList.add(`choice-${i}`);
+      choiceContainer.appendChild(choiceBox);
+    }
+  }
+  removeChoices() {
+    while (choiceContainer.firstChild)
+      choiceContainer.removeChild(choiceContainer.firstChild);
+  }
+  removeForm() {
+    while (endPopupInner.firstChild)
+      endPopupInner.removeChild(endPopupInner.firstChild);
+  }
+  generateForm() {
+    let worldCup = document.createElement('img');
+    worldCup.setAttribute('class', 'cup');
+    worldCup.setAttribute('src', 'img/trophy-worldcup.png');
+    endPopupInner.appendChild(worldCup);
+
+    let form = document.createElement('form');
+    form.setAttribute('class', 'congrats');
+    endPopupInner.appendChild(form);
+
+    let close = document.createElement('div');
+    close.setAttribute('class', 'close');
+    close.append('✕');
+    form.appendChild(close);
+
+    let message = document.createElement('p');
+    message.append('Congratulations, new high score!');
+    form.appendChild(message);
+
+    let nameInput = document.createElement('input');
+    nameInput.setAttribute('class', 'name-input');
+    nameInput.setAttribute('type', 'text');
+    nameInput.setAttribute('placeholder', 'Enter your name.');
+    form.appendChild(nameInput);
+
+    let submit = document.createElement('button');
+    submit.setAttribute('class', 'submit-score');
+    submit.innerText = 'Submit';
+    form.appendChild(submit);
   }
   showQuestion() {
     questionText.innerText = this.questions[this.questionIndex].question;
@@ -36,8 +87,8 @@ class Trivia {
       questionImage.classList.add('question-image');
       questionImageContainer.appendChild(questionImage);
     }
-    choiceTwo.style.display = 'block';
-    choiceThree.style.display = 'block';
+    document.querySelector('.choice-2').style.display = 'block';
+    document.querySelector('.choice-3').style.display = 'block';
     if (this.triviaType === 'multiple choice') {
       this.showMultipleChoice();
     } else if (this.triviaType === 'true or false') {
@@ -47,12 +98,24 @@ class Trivia {
     }
   }
   showMultipleChoice() {
-    choiceOne.style.display = 'block';
-    choiceFour.style.display = 'block';
+    document.querySelector('.choice-1').style.display = 'block';
+    document.querySelector('.choice-4').style.display = 'block';
+    let choiceBoxes = document.querySelectorAll('.choice');
     for (let i = 0; i < choiceBoxes.length; i++) {
       let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
-      choiceBoxes[i].className = 'choice';
+      let pictureTypes = [
+        'choice-image',
+        'flag',
+        'small-img',
+        'big-img',
+        'crest-img'
+      ];
+      pictureTypes.forEach(picClass => {
+        if (choiceBoxes[i].classList.contains(picClass)) {
+          choiceBoxes[i].classList.remove(picClass);
+        }
+      });
       if (guess.picture) {
         let pic = document.createElement('img');
         pic.setAttribute('class', 'choice-image');
@@ -71,8 +134,9 @@ class Trivia {
     }
   }
   showTrueOrFalse() {
-    choiceOne.style.display = 'none';
-    choiceFour.style.display = 'none';
+    document.querySelectorAll('.choice-1').style.display = 'none';
+    document.querySelectorAll('.choice-4').style.display = 'none';
+    let choiceBoxes = document.querySelectorAll('.choice');
     for (let i = 1; i < 3; i++) {
       let guess = this.questions[this.questionIndex].choices[i - 1];
       choiceBoxes[i].innerText = guess.text;
@@ -95,7 +159,7 @@ class Trivia {
     }
   }
   makeChoice(e) {
-    console.log(e.target);
+    console.log(e);
     let guess;
     if (e.target.classList.contains('choice-image')) {
       guess = e.target.parentNode.innerText;
@@ -111,6 +175,7 @@ class Trivia {
     if (this.checkGameEnd()) {
       this.gameEnd();
     } else {
+      console.log('next');
       this.nextQuestion();
     }
   }
@@ -184,6 +249,7 @@ class Trivia {
     return `${date} ${time}`;
   }
   highScoreInput() {
+    let nameInput = document.querySelector('.name-input');
     if (nameInput.value) {
       let playerName = nameInput.value;
       let finalScore = this.score;
@@ -245,17 +311,21 @@ class Trivia {
     this.showQuestion();
   }
   callEventListeners() {
-    choiceBoxes.forEach(choice => {
-      choice.addEventListener('click', e => this.makeChoice());
+    document.querySelectorAll('.choice').forEach(choice => {
+      choice.addEventListener('click', e => this.makeChoice(e));
     });
 
     clearButton.addEventListener('click', () => this.clearScores());
 
-    form.addEventListener('submit', () => this.highScoreInput());
+    document
+      .querySelector('.congrats')
+      .addEventListener('submit', () => this.highScoreInput());
 
     restart.addEventListener('click', () => this.restart());
 
-    close.addEventListener('click', () => this.abortScoreInput());
+    document
+      .querySelector('.close')
+      .addEventListener('click', () => this.abortScoreInput());
 
     acknowledge.addEventListener('click', () => this.acknowledge());
   }

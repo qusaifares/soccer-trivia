@@ -289,6 +289,13 @@ main {
   background: #2e7b77;
 }
 
+.choice-1,
+.choice-2,
+.choice-3,
+.choice-4 {
+  display: none;
+}
+
 .small-img:hover {
   height: 190.5px;
 }
