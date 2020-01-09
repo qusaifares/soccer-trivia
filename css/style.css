@@ -386,6 +386,7 @@ footer {
   padding: 10px;
   font-weight: normal;
   border: 2px solid;
+  display: block;
 }
 
 .trivia-nav {

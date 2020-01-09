@@ -17,9 +17,21 @@
       <div class="menu-wrap">
         <div class="close-menu">&#10005;</div>
         <ul class="trivia-list">
-          <li><a class="soccer" href="#trivia">Soccer Trivia</a></li>
-          <li><a class="pop" href="#trivia">Pop Culture Trivia</a></li>
-          <li><a class="geography" href="#trivia">Geography Trivia</a></li>
+          <li>
+            <a class="soccer" data-trivia="soccerTrivia" href="#trivia"
+              >Soccer Trivia</a
+            >
+          </li>
+          <li>
+            <a class="trump" data-trivia="trumpTrivia" href="#trivia"
+              >Did Trump Tweet This?</a
+            >
+          </li>
+          <li>
+            <a class="geography" data-trivia="geography" href="#trivia"
+              >Geography Trivia</a
+            >
+          </li>
         </ul>
       </div>
       <h1>Trivia</h1>
@@ -72,7 +84,9 @@
         <div class="question">
           Go ahead and select the trivia in the main menu.
         </div>
-        <div class="question-image"></div>
+        <div class="question-image-container">
+          <img class="question-image" />
+        </div>
       </div>
       <div class="bottom">
         <div class="choice choice-1"></div>
@@ -112,6 +126,7 @@
     <script src="js/trivia.js"></script>
     <script src="js/question.js"></script>
     <script src="js/soccer.js"></script>
+    <script src="js/trump.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

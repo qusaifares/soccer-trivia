@@ -1,18 +1,11 @@
 class Trivia {
-  constructor(
-    questions,
-    highScores,
-    highScoreLocal,
-    menuButtonClass,
-    triviaType
-  ) {
+  constructor(questions, highScores, highScoreLocal, triviaType) {
     this.questions = questions;
     this.questionIndex = 0;
     this.score = 0;
     this.numberOfQuestions = questions.length;
     this.highScores = highScores;
     this.highScoreLocal = highScoreLocal;
-    this.menuButtonClass = menuButtonClass;
     this.triviaType = triviaType;
   }
   startTrivia() {
@@ -29,17 +22,27 @@ class Trivia {
   }
   showQuestion() {
     questionText.innerText = this.questions[this.questionIndex].question;
+    if (!!this.questions[this.questionIndex].picture) {
+      questionImage.setAttribute(
+        'src',
+        `img/${this.questions[this.questionIndex].picture}`
+      );
+    } else if (questionImage.hasAttribute('src')) {
+      questionImage.removeAttribute('src');
+    }
+    console.log(this.triviaType);
     if (this.triviaType === 'multiple choice') {
       this.showMultipleChoice();
     } else if (this.triviaType === 'true or false') {
       this.showTrueOrFalse();
     } else {
+      console.log(this.triviaType);
       alert('Invalid trivia type.');
     }
   }
   showMultipleChoice() {
-    choiceOne.style.display = 'none';
-    choiceTwo.style.display = 'none';
+    choiceOne.style.display = 'block';
+    choiceFour.style.display = 'block';
     for (let i = 0; i < choiceBoxes.length; i++) {
       let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
@@ -62,10 +65,10 @@ class Trivia {
     }
   }
   showTrueOrFalse() {
-    choiceOne.style.display = 'block';
-    choiceTwo.style.display = 'block';
+    choiceOne.style.display = 'none';
+    choiceFour.style.display = 'none';
     for (let i = 1; i < 3; i++) {
-      let guess = this.questions[this.questionIndex].choices[i];
+      let guess = this.questions[this.questionIndex].choices[i - 1];
       choiceBoxes[i].innerText = guess.text;
       choiceBoxes[i].className = 'choice';
       if (guess.picture) {

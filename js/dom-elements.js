@@ -1,5 +1,6 @@
 const choiceBoxes = document.querySelectorAll('.choice');
 const questionText = document.querySelector('.question');
+const questionImage = document.querySelector('.question-image');
 const scoreboard = document.querySelector('.scoreboard');
 const scoreList = document.querySelector('.score-list');
 const clearButton = document.querySelector('.clear-scores');
@@ -15,6 +16,7 @@ const menuWrap = document.querySelector('.menu-wrap');
 const startButton = document.querySelector('.start-button');
 const closeMenu = document.querySelector('.close-menu');
 const soccerButton = document.querySelector('.soccer');
+const donaldButton = document.querySelector('.trump');
 const questionNumber = document.querySelector('.question-number');
 const choiceOne = document.querySelector('.choice-1');
 const choiceFour = document.querySelector('.choice-4');
