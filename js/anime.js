@@ -17,7 +17,7 @@ animeQuestions = [
       { text: 'Lambda' },
       { text: 'Steins Gate' }
     ],
-    ' World Line'
+    'Lambda'
   ),
   new Question(
     'Which Shinigami dropped their notebook in the human world?',

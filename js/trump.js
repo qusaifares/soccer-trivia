@@ -72,3 +72,10 @@ const donaldTrivia = new Trivia(
   'donaldHighScores',
   'true or false'
 );
+
+const audio = new Audio('audio/usa-anthem.mp3');
+
+donaldButton.addEventListener('click', () => {
+  audio.volume = 0.2;
+  audio.play();
+});
