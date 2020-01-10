@@ -1,25 +1,29 @@
-closeMenu.addEventListener('click', () => (menuWrap.style.display = 'none'));
+closeMenu.addEventListener(
+  'click',
+  () => (menuWrap.style.transform = 'scale(0)')
+);
+startButton.addEventListener('click', () => {
+  menuWrap.style.transform = 'scale(1)';
+  menuWrap.style.opacity = '1';
+});
 
 // Soccer Trivia
 const selectSoccerTrivia = () => {
-  menuWrap.style.display = 'none';
+  menuWrap.style.transform = 'scale(0)';
   soccerTrivia.startTrivia();
 };
-startButton.addEventListener('click', () => (menuWrap.style.display = 'flex'));
 soccerButton.addEventListener('click', () => selectSoccerTrivia());
 
 //
 const selectDonaldTrivia = () => {
-  menuWrap.style.display = 'none';
+  menuWrap.style.transform = 'scale(0)';
   donaldTrivia.startTrivia();
 };
-donaldButton.addEventListener('click', () => (menuWrap.style.display = 'flex'));
 donaldButton.addEventListener('click', () => selectDonaldTrivia());
 
 // Anime Trivia
 const selectAnimeTrivia = () => {
-  menuWrap.style.display = 'none';
+  menuWrap.style.transform = 'scale(0)';
   animeTrivia.startTrivia();
 };
-animeButton.addEventListener('click', () => (menuWrap.style.display = 'flex'));
 animeButton.addEventListener('click', () => selectAnimeTrivia());

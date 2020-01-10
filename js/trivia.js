@@ -310,6 +310,7 @@ class Trivia {
     this.showQuestion();
   }
   callEventListeners() {
+    // makes all buttons functional
     document.querySelectorAll('.choice').forEach(choice => {
       choice.addEventListener('click', e => this.makeChoice(e));
     });
