@@ -1,62 +1,62 @@
 donaldQuestions = [
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
-    'Fake',
+    [{ text: 'Real' }, { text: 'Fake News' }],
+    'Fake News',
     'donald-fake-1.png'
   ),
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
+    [{ text: 'Real' }, { text: 'Fake News' }],
     'Real',
     'donald-real-3.png'
   ),
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
+    [{ text: 'Real' }, { text: 'Fake News' }],
     'Real',
     'donald-real-2.png'
   ),
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
-    'Fake',
+    [{ text: 'Real' }, { text: 'Fake News' }],
+    'Fake News',
     'donald-fake-2.png'
   ),
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
+    [{ text: 'Real' }, { text: 'Fake News' }],
     'Real',
     'donald-real-1.png'
   ),
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
-    'Fake',
+    [{ text: 'Real' }, { text: 'Fake News' }],
+    'Fake News',
     'donald-fake-3.png'
   ),
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
+    [{ text: 'Real' }, { text: 'Fake News' }],
     'Real',
     'donald-real-4.png'
   ),
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
+    [{ text: 'Real' }, { text: 'Fake News' }],
     'Real',
     'donald-real-5.png'
   ),
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
+    [{ text: 'Real' }, { text: 'Fake News' }],
     'Real',
     'donald-real-6.png'
   ),
   new Question(
     'Real or fake?',
-    [{ text: 'Real' }, { text: 'Fake' }],
-    'Fake',
+    [{ text: 'Real' }, { text: 'Fake News' }],
+    'Fake News',
     'donald-fake-4.png'
   )
 ];
