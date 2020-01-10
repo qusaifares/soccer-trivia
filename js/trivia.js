@@ -9,6 +9,7 @@ class Trivia {
     this.triviaType = triviaType;
   }
   startTrivia() {
+    // delete choices and end-game form dom elements then regenerate them
     this.removeChoices();
     if (this.triviaType === 'multiple choice') {
       this.generateChoices(4);
@@ -34,8 +35,6 @@ class Trivia {
     for (let i = 1; i <= num; i++) {
       let choiceBox = document.createElement('div');
       choiceBox.setAttribute('class', `choice choice-` + i);
-      // choiceBox.classList.add('choice');
-      // choiceBox.classList.add(`choice-${i}`);
       choiceContainer.appendChild(choiceBox);
     }
   }
@@ -48,6 +47,7 @@ class Trivia {
       endPopupInner.removeChild(endPopupInner.firstChild);
   }
   generateForm() {
+    // generate world cup image
     let worldCup = document.createElement('img');
     worldCup.setAttribute('class', 'cup');
     worldCup.setAttribute('src', 'img/trophy-worldcup.png');
@@ -103,7 +103,6 @@ class Trivia {
   }
   showMultipleChoice() {
     let choiceBoxes = document.querySelectorAll('.choice');
-    console.log(choiceBoxes.length);
     for (let i = 0; i < choiceBoxes.length; i++) {
       let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
@@ -160,7 +159,6 @@ class Trivia {
     }
   }
   makeChoice(e) {
-    console.log(e);
     let guess;
     if (e.target.classList.contains('choice-image')) {
       guess = e.target.parentNode.innerText;
@@ -176,7 +174,6 @@ class Trivia {
     if (this.checkGameEnd()) {
       this.gameEnd();
     } else {
-      console.log('next');
       this.nextQuestion();
     }
   }

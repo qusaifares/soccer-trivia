@@ -62,4 +62,7 @@ I also have to mention [Traversy Media](https://www.youtube.com/channel/UC29ju8b
 ## Gratitude
 
 I'd like to thank my instructors at General Assembly (Jared, Hou, Esin, Jerrica, Jennifer), I feel my growth as a developer has been smooth and quick thanks to them.
+
 I'd also like to thank my colleagues for being very cooperative and helpful.
+
+Finally thanks to my siblings for helping me with some of the questions in these trivias.
