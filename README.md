@@ -24,25 +24,25 @@ This is the breakdown I had set for how I want a trivia to function from start t
 ## How it Works
 
 ![Quick Demo](demonstration.gif)
+For a higher quality video, I suggest checking out **demonstration.mov** in this repository.
 
 The user selects the trivia they want and answer questions which come in either multiple choice or true/false. Compete to stay on top of the table in the high scores list.
 
 ## Features
 
 - **Bronze/Minimum Viable Product:**
-  [x] Renders in browser
-  [x] Application deployed via GitHub Pages
-  [x] Clickable answer buttons
+  - [x] Renders in browser
+  - [x] Application deployed via GitHub Pages
+  - [x] Clickable answer buttons
 - **Silver:**
-  [x] Basic menu and trivia animations
-  [x] Mobile responsive design
+  - [x] Basic menu and trivia animations -[x] Mobile responsive design
 - **Gold:**
-  [x] Have more than one trivia
-  [x] Have different question types (True/False vs Multiple Choice)
-  [x] Separate high score tables for different trivias
-  [ ] Premium styling and animations
+  - [x] Have more than one trivia
+  - [x] Have different question types (True/False vs Multiple Choice)
+  - [x] Separate high score tables for different trivias
+  - [ ] Premium styling and animations
 - **Platinum:**
-  [ ] Ability for users to create their own trivias
+  - [ ] Ability for users to create their own trivias
 
 ## Technologies Used
 
