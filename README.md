@@ -55,6 +55,8 @@ The user selects the trivia they want and answer questions which come in either 
 
 Creating this application drove me to grow as a software engineer. I ran into many obstacles but thankfully always came to a solution by searching on sites like MDN and Stack Overflow.
 
+I used [Creately](https://creately.com/) to create my flowchart. I found it really helpful to create a flowchart to break your program down into more specific steps.
+
 I was also able to organize my work and plan ahead by using [Trello](https://trello.com/) which was suggested by Esin, one of my instructors.
 
 I also have to mention [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) on YouTube. I found his content very informative and well put together.

@@ -52,11 +52,11 @@ class Trivia {
     worldCup.setAttribute('class', 'cup');
     worldCup.setAttribute('src', 'img/trophy-worldcup.png');
     endPopupInner.appendChild(worldCup);
-
+    //form
     let form = document.createElement('form');
     form.setAttribute('class', 'congrats');
     endPopupInner.appendChild(form);
-
+    // X close button
     let close = document.createElement('div');
     close.setAttribute('class', 'close');
     close.append('✕');
