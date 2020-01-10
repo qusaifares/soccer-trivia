@@ -12,10 +12,10 @@ animeQuestions = [
   new Question(
     "Which of the following 'world lines' was not mentioned in Steins; Gate?",
     [
-      { text: 'Alpha World Line', picture: 'ryuk-crest.jpg' },
-      { text: 'Beta World Line', picture: 'rem-crest.jpg' },
-      { text: 'Lambda World Line', picture: 'sidoh-crest.png' },
-      { text: 'Steins Gate World Line', picture: 'gelus-crest.jpg' }
+      { text: 'Alpha' },
+      { text: 'Beta' },
+      { text: 'Lambda' },
+      { text: 'Steins Gate' }
     ],
     ' World Line'
   ),
@@ -28,6 +28,79 @@ animeQuestions = [
       { text: 'Gelus', picture: 'gelus-crest.jpg' }
     ],
     'Ryuk'
+  ),
+  new Question(
+    "What is Naruto's signature move called?",
+    [
+      { text: 'Amaterasu' },
+      { text: 'Chidori' },
+      { text: 'Rasengan' },
+      { text: 'Tsukuyomi' }
+    ],
+    'Rasengan'
+  ),
+  new Question(
+    'What is the name of this character?',
+    [
+      { text: 'Genos' },
+      { text: 'Garou' },
+      { text: 'Tatsumaki' },
+      { text: 'Saitama' }
+    ],
+    'Saitama',
+    'saitama.png'
+  ),
+  new Question(
+    "What is Tanjiro's breathing style in Demon Slayer?",
+    [
+      { text: 'Water' },
+      { text: 'Lightning' },
+      { text: 'Wind' },
+      { text: 'Beast' }
+    ],
+    'Water'
+  ),
+  new Question(
+    "What is the name of Goku's signature move?",
+    [
+      { text: 'Galick Gun' },
+      { text: 'Kamehameha' },
+      { text: 'Final Flash' },
+      { text: 'Desructo Disk' }
+    ],
+    'Kamehameha'
+  ),
+  new Question(
+    'What is the name of this anime?',
+    [
+      { text: 'Captain Tsubasa' },
+      { text: 'Kuroko no Basket' },
+      { text: 'Haikyuu!!' },
+      { text: 'Free!' }
+    ],
+    'Haikyuu!!',
+    'haikyuu.jpeg'
+  ),
+  new Question(
+    "Which of the following is not one of Meruem's royal guards in Hunter x Hunter?",
+    [
+      { text: 'Kurapika' },
+      { text: 'Pitou' },
+      { text: 'Pouf' },
+      { text: 'Youpi' }
+    ],
+    'Kurapika'
+  ),
+  new Question(
+    "What is the name of All Might's quirk",
+    [
+      { text: 'All for One' },
+      { text: 'One for All' },
+      { text: 'Black Hole' },
+      { text: 'Cremation' }
+    ],
+    'One for All',
+    'allmight.jpg'
   )
 ];
 

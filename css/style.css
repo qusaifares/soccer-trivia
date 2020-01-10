@@ -228,7 +228,6 @@ main {
 .top {
   text-align: center;
   margin-top: 70px;
-  max-height: 200px;
   width: 100%;
 }
 
@@ -266,6 +265,7 @@ main {
   border-radius: 10px;
   padding: 5px;
   max-width: 100%;
+  max-height: 260px;
 }
 .question-image-container {
   margin: 0 auto;
@@ -438,10 +438,7 @@ footer {
 @media (max-width: 700px) {
   h1 {
     font-size: 3.5rem;
-<<<<<<< HEAD
     margin: 0;
-=======
->>>>>>> c79822ac702cafca8db49743d972f5b9e5627fea
   }
   nav a {
     display: block;
@@ -596,12 +593,16 @@ footer {
   .question-image-container {
     max-width: 90%;
   }
+  .bottom {
+    padding-top: 10px;
+  }
 }
 
 @media (max-width: 900px) and (min-width: 700px) {
   .bottom {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-top: 10px;
   }
   .choice {
     align-self: center;
