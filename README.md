@@ -35,7 +35,8 @@ The user selects the trivia they want and answer questions which come in either 
   - [x] Application deployed via GitHub Pages
   - [x] Clickable answer buttons
 - **Silver:**
-  - [x] Basic menu and trivia animations -[x] Mobile responsive design
+  - [x] Basic menu and trivia animations
+  - [x] Mobile responsive design
 - **Gold:**
   - [x] Have more than one trivia
   - [x] Have different question types (True/False vs Multiple Choice)
@@ -55,6 +56,8 @@ The user selects the trivia they want and answer questions which come in either 
 Creating this application drove me to grow as a software engineer. I ran into many obstacles but thankfully always came to a solution by searching on sites like MDN and Stack Overflow.
 
 I was also able to organize my work and plan ahead by using [Trello](https://trello.com/) which was suggested by Esin, one of my instructors.
+
+I also have to mention [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) on Youtube. I found his content very informative and well put together.
 
 ## Gratitude
 
