@@ -185,7 +185,7 @@ class Trivia {
   }
   addScore() {
     this.score++;
-    scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
+    scoreboard.innerText = `Score: ${this.score}`;
     questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
       this.numberOfQuestions
     }`;
@@ -256,8 +256,9 @@ class Trivia {
       let finalScore = this.score;
       this.highScores.push({
         name: playerName,
-        score: `${finalScore}/${this.numberOfQuestions}`,
-        date: this.getCurrentTime()
+        score: finalScore,
+        date: this.getCurrentTime(),
+        scoreText: `${finalScore}/${this.numberOfQuestions}`
       });
       endPopup.style.display = 'none';
       this.logScores();
@@ -287,7 +288,7 @@ class Trivia {
       let playerCell = document.createElement('td');
       playerCell.append(this.highScores[i].name);
       let scoreCell = document.createElement('td');
-      scoreCell.append(this.highScores[i].score);
+      scoreCell.append(this.highScores[i].scoreText);
       let dateCell = document.createElement('td');
       dateCell.append(this.highScores[i].date);
       scoreRow.appendChild(rankCell);

@@ -51,6 +51,26 @@ soccerQuestions = [
     '6 seconds'
   ),
   new Question(
+    'What is the record for red cards given in a single soccer game?',
+    [{ text: '24' }, { text: '12' }, { text: '36' }, { text: '6' }],
+    '36'
+  ),
+  new Question(
+    'What was the fastest goal in World Cup history?',
+    [
+      { text: '10.8 seconds' },
+      { text: '6.2 seconds' },
+      { text: '14.7 seconds' },
+      { text: '18.3 seconds' }
+    ],
+    '10.8 seconds'
+  ),
+  new Question(
+    'What year were soccer rules codified?',
+    [{ text: '1763' }, { text: '1863' }, { text: '1663' }, { text: '1963' }],
+    '1863'
+  ),
+  new Question(
     'In which country did the first World Cup take place?',
     [
       { text: 'Brazil', picture: 'brazil-flag.jpg' },

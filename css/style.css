@@ -223,7 +223,7 @@ main {
 
 .top {
   text-align: center;
-  margin-top: 70px;
+  margin: 70px 0;
   width: 100%;
 }
 
@@ -273,7 +273,6 @@ main {
   justify-content: space-around;
   align-items: center;
   min-height: 420px;
-  padding-top: 100px;
 }
 
 .choice {
