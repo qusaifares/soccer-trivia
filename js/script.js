@@ -15,3 +15,11 @@ const selectDonaldTrivia = () => {
 };
 donaldButton.addEventListener('click', () => (menuWrap.style.display = 'flex'));
 donaldButton.addEventListener('click', () => selectDonaldTrivia());
+
+// Anime Trivia
+const selectAnimeTrivia = () => {
+  menuWrap.style.display = 'none';
+  animeTrivia.startTrivia();
+};
+animeButton.addEventListener('click', () => (menuWrap.style.display = 'flex'));
+animeButton.addEventListener('click', () => selectAnimeTrivia());

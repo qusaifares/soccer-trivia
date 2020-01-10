@@ -19,5 +19,6 @@ const startButton = document.querySelector('.start-button');
 const closeMenu = document.querySelector('.close-menu');
 const soccerButton = document.querySelector('.soccer');
 const donaldButton = document.querySelector('.trump');
+const animeButton = document.querySelector('.anime');
 const questionNumber = document.querySelector('.question-number');
 const choiceContainer = document.querySelector('.bottom');
