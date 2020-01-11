@@ -328,11 +328,12 @@ class Trivia {
     }`;
     this.removeChoices();
     this.removeForm();
-    this.removeRestart();
+    this.replaceRestart();
     questionText.innerText = 'Thanks for playing';
   }
-  removeRestart() {
+  replaceRestart() {
     document.querySelector('.restart').remove();
+    document.querySelector('.no-restart').remove();
     let restartBtn = document.createElement('button');
     restartBtn.setAttribute('class', 'restart');
     restartForm.append(restartBtn);
