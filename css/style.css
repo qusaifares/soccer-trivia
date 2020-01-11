@@ -58,7 +58,6 @@ header {
   align-items: center;
   transition: all 0.2s;
   border-radius: 50%;
-  overflow: visible;
   opacity: 0;
   transform: scale(0);
 }
@@ -132,12 +131,19 @@ main {
 .popup-bg,
 .popup-question-bg {
   background: rgba(0, 0, 0, 0.7);
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  display: none;
+  height: 135%;
+  width: 135%;
+  border-radius: 50%;
+  position: fixed;
+  top: -17.5%;
+  left: -17.5%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  transform: scale(0);
+  transition: all 0.2s;
 }
 
 .popup-question-bg {
@@ -188,7 +194,8 @@ main {
 }
 
 .popup-content p,
-.result {
+.result,
+.restart-prompt {
   font-size: 1.5rem;
   color: #1f2833;
   font-weight: bold;
@@ -212,7 +219,9 @@ main {
 }
 
 .submit-score,
-.acknowledge {
+.acknowledge,
+.restart,
+.no-restart {
   padding: 5px;
   background: #2e7b77;
   color: #c5c6c7;
@@ -221,6 +230,14 @@ main {
   height: 40px;
   font-size: 1.3rem;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submit-score:hover,
+.acknowledge:hover,
+.restart:hover,
+.no-restart:hover {
+  background: #45a29e;
 }
 
 .acknowledge {
@@ -233,19 +250,50 @@ main {
   width: 100%;
 }
 
-.restart {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: #45a29e;
-  font-size: 1.2rem;
-  padding: 10px;
-  border: 2px solid;
-  border-color: #45a29e;
-  transition: all 0.4s;
+.restart-bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(23, 69, 70, 0.7);
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0);
 }
 
-.restart:hover {
+.restart-content {
+  background: #45a29e;
+  width: 500px;
+  height: 300px;
+  border-radius: 5px;
+  text-align: center;
+  display: grid;
+  grid-template-areas: 'prompt prompt' 'yes no';
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  grid-gap: 40px 20px;
+}
+
+.restart-prompt {
+  grid-area: prompt;
+  margin-top: auto;
+}
+
+.restart {
+  grid-area: yes;
+  margin-left: auto;
+}
+
+.no-restart {
+  grid-area: no;
+}
+
+.restart:hover,
+.no-restart:hover {
   color: #45a29e;
   background: #1f2833;
 }
@@ -490,17 +538,13 @@ footer {
   table {
     font-size: 1.3rem;
   }
-  .restart {
-    top: 5px;
-    left: 5px;
+
+  .restart,
+  .no-restart {
     font-size: 1rem;
-    margin: 20px;
     padding: 0px;
     align-self: flex-start;
     font-weight: normal;
-    border: 2px solid;
-    border-color: #45a29e;
-    transition: all 0.4s;
     height: 30px;
     width: 60px;
     display: flex;

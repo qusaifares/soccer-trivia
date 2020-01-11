@@ -190,17 +190,19 @@ class Trivia {
   showCorrect() {
     result.innerText = 'Thats correct. Good job!';
     acknowledge.innerText = 'Yay!';
-    resultPopup.style.display = 'flex';
+    resultPopup.style.transform = 'scale(1)';
+    resultPopup.style.opacity = '1';
   }
   showIncorrect() {
     result.innerText = `That's wrong. The correct answer is ${
       this.questions[this.questionIndex].answer
     }`;
     acknowledge.innerText = "I'm sorry";
-    resultPopup.style.display = 'flex';
+    resultPopup.style.transform = 'scale(1)';
+    resultPopup.style.opacity = '1';
   }
   acknowledge() {
-    resultPopup.style.display = 'none';
+    resultPopup.style.transform = 'scale(0)';
   }
   nextQuestion() {
     this.questionIndex++;
@@ -215,9 +217,11 @@ class Trivia {
   gameEnd() {
     let finalScore = this.score;
     if (this.highScores.length < 5 || finalScore >= this.highScores[4].score) {
-      endPopup.style.display = 'flex';
+      endPopup.style.transform = 'scale(1)';
+      endPopup.style.opacity = '1';
     } else {
-      this.restart();
+      restartPopup.style.transform = 'scale(1)';
+      restartPopup.style.opacity = '1';
     }
   }
   getCurrentTime() {
@@ -257,16 +261,18 @@ class Trivia {
         date: this.getCurrentTime(),
         scoreText: `${finalScore}/${this.numberOfQuestions}`
       });
-      endPopup.style.display = 'none';
+      endPopup.style.transform = 'scale(0)';
       this.logScores();
-      this.restart();
+      restartPopup.style.transform = 'scale(1)';
+      restartPopup.style.opacity = '1';
     } else {
       alert('Make sure to enter a name.');
     }
   }
   abortScoreInput() {
-    endPopup.style.display = 'none';
-    this.restart();
+    endPopup.style.transform = 'scale(0)';
+    restartPopup.style.transform = 'scale(1)';
+    restartPopup.style.opacity = '1';
   }
   logScores() {
     let rows = document.querySelectorAll('.player');
@@ -301,6 +307,8 @@ class Trivia {
     this.logScores();
   }
   restart() {
+    restartPopup.style.transform = 'scale(0)';
+    restartPopup.style.opacity = '0';
     this.questionIndex = 0;
     this.score = 0;
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
@@ -308,6 +316,29 @@ class Trivia {
       this.numberOfQuestions
     }`;
     this.showQuestion();
+  }
+  dontRestart() {
+    restartPopup.style.transform = 'scale(0)';
+    restartPopup.style.opacity = '0';
+    this.questionIndex = 0;
+    this.score = 0;
+    scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
+      this.numberOfQuestions
+    }`;
+    this.removeChoices();
+    this.removeForm();
+    this.removeRestart();
+    questionText.innerText = 'Thanks for playing';
+  }
+  removeRestart() {
+    document.querySelector('.restart').remove();
+    let restartBtn = document.createElement('button');
+    restartBtn.setAttribute('class', 'restart');
+    restartForm.append(restartBtn);
+    let noRestart = document.createElement('button');
+    noRestart.setAttribute('class', 'no-restart');
+    restartForm.append(noRestart);
   }
   callEventListeners() {
     // makes all buttons functional
@@ -321,7 +352,13 @@ class Trivia {
       .querySelector('.congrats')
       .addEventListener('submit', () => this.highScoreInput());
 
-    restart.addEventListener('click', () => this.restart());
+    document
+      .querySelector('.restart')
+      .addEventListener('click', () => this.restart());
+
+    document
+      .querySelector('.no-restart')
+      .addEventListener('click', () => this.dontRestart());
 
     document
       .querySelector('.close')
