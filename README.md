@@ -59,7 +59,7 @@ I used [Creately](https://creately.com/) to create my flowchart. I found it real
 
 I was also able to organize my work and plan ahead by using [Trello](https://trello.com/) which was suggested by Esin, one of my instructors.
 
-I also have to mention [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) on YouTube. I found his content very informative and well put together.
+I also have to mention [Traversy Media](https://www.youtube.com/user/TechGuyWeb) on YouTube. I found his content very informative and well put together.
 
 ## Gratitude
 
