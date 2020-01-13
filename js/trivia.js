@@ -102,10 +102,12 @@ class Trivia {
     }
   }
   showMultipleChoice() {
+    // generates 4 choices
     let choiceBoxes = document.querySelectorAll('.choice');
     for (let i = 0; i < choiceBoxes.length; i++) {
       let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
+      // gives class to choice to decide on hover height
       let pictureTypes = [
         'choice-image',
         'flag',
@@ -136,11 +138,13 @@ class Trivia {
     }
   }
   showTrueOrFalse() {
+    // generates 2 choices
     let choiceBoxes = document.querySelectorAll('.choice');
     for (let i = 0; i < 2; i++) {
       let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
       choiceBoxes[i].className = 'choice';
+
       if (guess.picture) {
         let pic = document.createElement('img');
         pic.setAttribute('class', 'choice-image');
