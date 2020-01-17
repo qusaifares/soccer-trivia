@@ -100,9 +100,9 @@
 
       <div class="page-header">
         <input class="menu-btn" type="checkbox" id="scores-menu-btn" />
-        <label for="scores-menu-btn" class="menu-icon"
-          ><span class="nav-icon"></span
-        ></label>
+        <label for="scores-menu-btn" class="menu-icon">
+          <span class="nav-icon"></span>
+        </label>
         <div class="scores-nav mini-nav">
           <a href="#menu">Main Menu</a>
           <a href="#trivia">Trivia</a>
@@ -120,7 +120,7 @@
         </tr>
       </table>
     </section>
-
+    <!-- Consider only loading the files for each game as you need them using appendChild and remove to swap them out. Could reduce initial load time, especially important in larger applications. -->
     <script src="js/dom-elements.js"></script>
     <script src="js/trivia.js"></script>
     <script src="js/question.js"></script>
