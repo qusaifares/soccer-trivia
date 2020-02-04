@@ -14,12 +14,12 @@ const selectSoccerTrivia = () => {
 };
 soccerButton.addEventListener('click', () => selectSoccerTrivia());
 
-//
-const selectDonaldTrivia = () => {
-  menuWrap.style.transform = 'scale(0)';
-  donaldTrivia.startTrivia();
-};
-donaldButton.addEventListener('click', () => selectDonaldTrivia());
+// Donald Trivia
+// const selectDonaldTrivia = () => {
+//   menuWrap.style.transform = 'scale(0)';
+//   donaldTrivia.startTrivia();
+// };
+// donaldButton.addEventListener('click', () => selectDonaldTrivia());
 
 // Anime Trivia
 const selectAnimeTrivia = () => {
