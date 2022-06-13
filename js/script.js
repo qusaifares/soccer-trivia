@@ -1,29 +1,30 @@
-closeMenu.addEventListener(
-  'click',
-  () => (menuWrap.style.transform = 'scale(0)')
-);
-startButton.addEventListener('click', () => {
-  menuWrap.style.transform = 'scale(1)';
-  menuWrap.style.opacity = '1';
-});
+const updateMenuScale = (scale) => {
+  menuWrap.style.transform = `scale(${scale})`;
+};
+
+const openMenu = () => updateMenuScale(1);
+const closeMenu = () => updateMenuScale(0);
+
+closeMenuBtn.addEventListener('click', closeMenu);
+startButton.addEventListener('click', openMenu);
 
 // Soccer Trivia
 const selectSoccerTrivia = () => {
-  menuWrap.style.transform = 'scale(0)';
+  closeMenu();
   soccerTrivia.startTrivia();
 };
 soccerButton.addEventListener('click', () => selectSoccerTrivia());
 
 // Donald Trivia
-// const selectDonaldTrivia = () => {
-//   menuWrap.style.transform = 'scale(0)';
-//   donaldTrivia.startTrivia();
-// };
-// donaldButton.addEventListener('click', () => selectDonaldTrivia());
+const selectDonaldTrivia = () => {
+  closeMenu();
+  donaldTrivia.startTrivia();
+};
+donaldButton.addEventListener('click', () => selectDonaldTrivia());
 
 // Anime Trivia
 const selectAnimeTrivia = () => {
-  menuWrap.style.transform = 'scale(0)';
+  closeMenu();
   animeTrivia.startTrivia();
 };
 animeButton.addEventListener('click', () => selectAnimeTrivia());

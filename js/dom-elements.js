@@ -2,9 +2,7 @@ const menuCheckBox = document.querySelectorAll('.name-input');
 const miniNav = document.querySelectorAll('.mini-nav');
 const choiceBoxes = document.querySelectorAll('.choice');
 const questionText = document.querySelector('.question');
-const questionImageContainer = document.querySelector(
-  '.question-image-container'
-);
+const questionImageContainer = document.querySelector('.question-image-container');
 const scoreboard = document.querySelector('.scoreboard');
 const scoreList = document.querySelector('.score-list');
 const clearButton = document.querySelector('.clear-scores');
@@ -17,9 +15,9 @@ const result = document.querySelector('.result');
 const acknowledge = document.querySelector('.acknowledge');
 const menuWrap = document.querySelector('.menu-wrap');
 const startButton = document.querySelector('.start-button');
-const closeMenu = document.querySelector('.close-menu');
-const soccerButton = document.querySelector('.soccer');
-const donaldButton = document.querySelector('.trump');
-const animeButton = document.querySelector('.anime');
+const closeMenuBtn = document.querySelector('.close-menu');
+const soccerButton = document.getElementById('soccerBtn');
+const donaldButton = document.getElementById('trumpBtn');
+const animeButton = document.getElementById('animeBtn');
 const questionNumber = document.querySelector('.question-number');
 const choiceContainer = document.querySelector('.bottom');

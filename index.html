@@ -18,18 +18,14 @@
         <div class="close-menu">&#10005;</div>
         <ul class="trivia-list">
           <li>
-            <a class="soccer" data-trivia="soccerTrivia" href="#trivia"
-              >Soccer Trivia</a
-            >
+            <a id="soccerBtn" data-trivia="soccer" href="#trivia">Soccer Trivia</a>
           </li>
           <li>
-            <a class="anime" data-trivia="anime" href="#trivia">Anime Trivia</a>
+            <a id="animeBtn" data-trivia="anime" href="#trivia">Anime Trivia</a>
           </li>
-          <!-- <li>
-            <a class="trump" data-trivia="trumpTrivia" href="#trivia"
-              >Did Trump Tweet This?</a
-            >
-          </li> -->
+          <li>
+            <a id="trumpBtn" data-trivia="trump" href="#trivia">Did Trump Tweet This?</a>
+          </li>
         </ul>
       </div>
       <h1>Trump Card<br />Trivia</h1>
@@ -46,11 +42,7 @@
           <form class="congrats">
             <div class="close">&#10005;</div>
             <p>Congratulations, new high score!</p>
-            <input
-              class="name-input"
-              type="text"
-              placeholder="Enter your name."
-            />
+            <input class="name-input" type="text" placeholder="Enter your name." />
             <button class="submit-score">Submit</button>
           </form>
         </div>
@@ -72,9 +64,7 @@
       </div>
       <div class="page-header">
         <input class="menu-btn" type="checkbox" id="trivia-menu-btn" />
-        <label for="trivia-menu-btn" class="menu-icon"
-          ><span class="nav-icon"></span
-        ></label>
+        <label for="trivia-menu-btn" class="menu-icon"><span class="nav-icon"></span></label>
         <div class="trivia-nav mini-nav">
           <a href="#menu">Main Menu</a>
           <a href="#trivia">Trivia</a>
@@ -86,9 +76,7 @@
           <div class="question-number"></div>
           <div class="scoreboard"></div>
         </div>
-        <div class="question">
-          Go ahead and select the trivia in the main menu.
-        </div>
+        <div class="question">Go ahead and select the trivia in the main menu.</div>
         <div class="question-image-container"></div>
       </div>
 
@@ -100,9 +88,7 @@
 
       <div class="page-header">
         <input class="menu-btn" type="checkbox" id="scores-menu-btn" />
-        <label for="scores-menu-btn" class="menu-icon"
-          ><span class="nav-icon"></span
-        ></label>
+        <label for="scores-menu-btn" class="menu-icon"><span class="nav-icon"></span></label>
         <div class="scores-nav mini-nav">
           <a href="#menu">Main Menu</a>
           <a href="#trivia">Trivia</a>
