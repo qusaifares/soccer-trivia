@@ -1,5 +1,5 @@
 class Trivia {
-  constructor(questions, highScores, highScoreLocal, triviaType, triviaTitle) {
+  constructor(questions, highScores, highScoreLocal, triviaType, hasAudio = false) {
     this.questions = questions;
     this.questionIndex = 0;
     this.score = 0;
@@ -7,6 +7,7 @@ class Trivia {
     this.highScores = highScores;
     this.highScoreLocal = highScoreLocal;
     this.triviaType = triviaType;
+    this.hasAudio = hasAudio;
   }
   startTrivia() {
     // delete choices and end-game form dom elements then regenerate them
@@ -24,12 +25,15 @@ class Trivia {
     this.score = 0;
     this.callEventListeners();
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
-    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
-      this.numberOfQuestions
-    }`;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${this.numberOfQuestions}`;
 
     this.logScores();
     this.showQuestion();
+    if (this.hasAudio) {
+      startAudio();
+    } else {
+      stopAudio();
+    }
   }
   generateChoices(num) {
     for (let i = 1; i <= num; i++) {
@@ -39,12 +43,10 @@ class Trivia {
     }
   }
   removeChoices() {
-    while (choiceContainer.firstChild)
-      choiceContainer.removeChild(choiceContainer.firstChild);
+    while (choiceContainer.firstChild) choiceContainer.removeChild(choiceContainer.firstChild);
   }
   removeForm() {
-    while (endPopupInner.firstChild)
-      endPopupInner.removeChild(endPopupInner.firstChild);
+    while (endPopupInner.firstChild) endPopupInner.removeChild(endPopupInner.firstChild);
   }
   generateForm() {
     // generate world cup image
@@ -86,10 +88,7 @@ class Trivia {
     // if theres a picture in the questions array, create element
     if (!!this.questions[this.questionIndex].picture) {
       let questionImage = document.createElement('img');
-      questionImage.setAttribute(
-        'src',
-        `img/${this.questions[this.questionIndex].picture}`
-      );
+      questionImage.setAttribute('src', `img/${this.questions[this.questionIndex].picture}`);
       questionImage.classList.add('question-image');
       questionImageContainer.appendChild(questionImage);
     }
@@ -108,14 +107,8 @@ class Trivia {
       let guess = this.questions[this.questionIndex].choices[i];
       choiceBoxes[i].innerText = guess.text;
       // gives class to choice to decide on hover height
-      let pictureTypes = [
-        'choice-image',
-        'flag',
-        'small-img',
-        'big-img',
-        'crest-img'
-      ];
-      pictureTypes.forEach(picClass => {
+      let pictureTypes = ['choice-image', 'flag', 'small-img', 'big-img', 'crest-img'];
+      pictureTypes.forEach((picClass) => {
         if (choiceBoxes[i].classList.contains(picClass)) {
           choiceBoxes[i].classList.remove(picClass);
         }
@@ -187,9 +180,7 @@ class Trivia {
   addScore() {
     this.score++;
     scoreboard.innerText = `Score: ${this.score}`;
-    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
-      this.numberOfQuestions
-    }`;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${this.numberOfQuestions}`;
   }
   showCorrect() {
     result.innerText = 'Thats correct. Good job!';
@@ -210,9 +201,7 @@ class Trivia {
   }
   nextQuestion() {
     this.questionIndex++;
-    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
-      this.numberOfQuestions
-    }`;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${this.numberOfQuestions}`;
     this.showQuestion();
   }
   checkGameEnd() {
@@ -263,7 +252,7 @@ class Trivia {
         name: playerName,
         score: finalScore,
         date: this.getCurrentTime(),
-        scoreText: `${finalScore}/${this.numberOfQuestions}`
+        scoreText: `${finalScore}/${this.numberOfQuestions}`,
       });
       endPopup.style.transform = 'scale(0)';
       this.logScores();
@@ -281,7 +270,7 @@ class Trivia {
   logScores() {
     let rows = document.querySelectorAll('.player');
     if (rows) {
-      rows.forEach(row => row.parentNode.removeChild(row));
+      rows.forEach((row) => row.parentNode.removeChild(row));
     } else {
     }
     this.highScores.sort((a, b) => b.score - a.score);
@@ -316,9 +305,7 @@ class Trivia {
     this.questionIndex = 0;
     this.score = 0;
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
-    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
-      this.numberOfQuestions
-    }`;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${this.numberOfQuestions}`;
     this.showQuestion();
   }
   dontRestart() {
@@ -327,9 +314,7 @@ class Trivia {
     this.questionIndex = 0;
     this.score = 0;
     scoreboard.innerText = `Score: ${this.score}/${this.numberOfQuestions}`;
-    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${
-      this.numberOfQuestions
-    }`;
+    questionNumber.innerText = `Question: ${this.questionIndex + 1}/${this.numberOfQuestions}`;
     this.removeChoices();
     this.removeForm();
     this.replaceRestart();
@@ -347,27 +332,19 @@ class Trivia {
   }
   callEventListeners() {
     // makes all buttons functional
-    document.querySelectorAll('.choice').forEach(choice => {
-      choice.addEventListener('click', e => this.makeChoice(e));
+    document.querySelectorAll('.choice').forEach((choice) => {
+      choice.addEventListener('click', (e) => this.makeChoice(e));
     });
 
     clearButton.addEventListener('click', () => this.clearScores());
 
-    document
-      .querySelector('.congrats')
-      .addEventListener('submit', () => this.highScoreInput());
+    document.querySelector('.congrats').addEventListener('submit', () => this.highScoreInput());
 
-    document
-      .querySelector('.restart')
-      .addEventListener('click', () => this.restart());
+    document.querySelector('.restart').addEventListener('click', () => this.restart());
 
-    document
-      .querySelector('.no-restart')
-      .addEventListener('click', () => this.dontRestart());
+    document.querySelector('.no-restart').addEventListener('click', () => this.dontRestart());
 
-    document
-      .querySelector('.close')
-      .addEventListener('click', () => this.abortScoreInput());
+    document.querySelector('.close').addEventListener('click', () => this.abortScoreInput());
 
     acknowledge.addEventListener('click', () => this.acknowledge());
   }

@@ -58,7 +58,7 @@ donaldQuestions = [
     [{ text: 'Real' }, { text: 'Fake News' }],
     'Fake News',
     'donald-fake-4.png'
-  )
+  ),
 ];
 // Store high scores locally
 donaldHighScores = JSON.parse(localStorage.getItem('donaldHighScores'));
@@ -70,12 +70,20 @@ const donaldTrivia = new Trivia(
   donaldQuestions,
   donaldHighScores,
   'donaldHighScores',
-  'true or false'
+  'true or false',
+  true
 );
 
-const audio = new Audio('audio/usa-anthem.mp3');
+Audio.prototype.stop = function () {
+  this.pause();
+  this.currentTime = 0;
+};
 
-donaldButton.addEventListener('click', () => {
-  audio.volume = 0.2;
-  audio.play();
-});
+const audio = new Audio('audio/usa-anthem.mp3');
+audio.volume = 0.2;
+
+const startAudio = () => audio.play();
+const stopAudio = () => {
+  audio.pause();
+  audio.currentTime = 0;
+};
